@@ -1,0 +1,103 @@
+{
+  "source_id": "RESEARCH-TASKS-2026-11-16",
+  "source_url": null,
+  "retrieved_at": "2026-11-16T09:28:39.341840+00:00",
+  "source_vintage": "Fixed assistant-authored task pack v2",
+  "geography": "Local machine",
+  "unit_of_observation": "selected excerpt retrieval task",
+  "period": "2026-11-16",
+  "currency": null,
+  "price_year": null,
+  "schema_version": "portfolio.v1",
+  "status": "estimated",
+  "environment": {
+    "python": "3.13.14",
+    "system": "Windows",
+    "processor": "AMD64"
+  },
+  "tasks": [
+    {
+      "task_id": "citi-2024-rollout",
+      "source_id": "C-2024",
+      "query": "colleagues platforms launched",
+      "expected_evidence_id": "BANK-C-2024-1",
+      "retrieved_evidence_id": "BANK-C-2024-1",
+      "top_one_reference_match": true,
+      "exact_source_locator_match": true,
+      "elapsed_seconds": 8.729984983801842e-05,
+      "interpretation": "Colleague reach is rollout/access, not independently observed active use."
+    },
+    {
+      "task_id": "citi-2025-coding",
+      "source_id": "C-2025",
+      "query": "developers coding hours capacity",
+      "expected_evidence_id": "BANK-C-2025-6",
+      "retrieved_evidence_id": "BANK-C-2025-6",
+      "top_one_reference_match": true,
+      "exact_source_locator_match": true,
+      "elapsed_seconds": 2.0300038158893585e-05,
+      "interpretation": "Reported released capacity is not verified cash savings."
+    },
+    {
+      "task_id": "jpm-2024-access",
+      "source_id": "JPM-2024",
+      "query": "LLM Suite launched colleagues",
+      "expected_evidence_id": "BANK-JPM-2024-7",
+      "retrieved_evidence_id": "BANK-JPM-2024-7",
+      "top_one_reference_match": true,
+      "exact_source_locator_match": true,
+      "elapsed_seconds": 3.9400067180395126e-05,
+      "interpretation": "Firmwide access population."
+    },
+    {
+      "task_id": "wfc-use-risk",
+      "source_id": "WFC-2024",
+      "query": "business decisions operations no assurance",
+      "expected_evidence_id": "BANK-WFC-2024-1",
+      "retrieved_evidence_id": "BANK-WFC-2024-1",
+      "top_one_reference_match": true,
+      "exact_source_locator_match": true,
+      "elapsed_seconds": 3.42000275850296e-05,
+      "interpretation": "Use and risk coexist; repeated disclosure is not a new event."
+    },
+    {
+      "task_id": "bac-coding-pilot",
+      "source_id": "BAC-2023",
+      "query": "piloting programming coding",
+      "expected_evidence_id": "BANK-BAC-2023-7",
+      "retrieved_evidence_id": "BANK-BAC-2023-7",
+      "top_one_reference_match": true,
+      "exact_source_locator_match": true,
+      "elapsed_seconds": 2.429983578622341e-05,
+      "interpretation": "A pilot does not establish scaled deployment."
+    },
+    {
+      "task_id": "citi-risk",
+      "source_id": "C-2023",
+      "query": "controls governance increased risks",
+      "expected_evidence_id": "BANK-C-2023-1",
+      "retrieved_evidence_id": "BANK-C-2023-1",
+      "top_one_reference_match": true,
+      "exact_source_locator_match": true,
+      "elapsed_seconds": 2.659996971487999e-05,
+      "interpretation": "A conditional warning does not establish use."
+    }
+  ],
+  "top_one_matches": 6,
+  "locator_matches": 6,
+  "n": 6,
+  "scope": "Document-filtered keyword ranking over released reviewed excerpts. Expected references and tasks by one AI assistant; not independent quality validation, full-document search, or employee productivity measurement.",
+  "human_benchmark_status": "Not conducted. No participants or human time measurements.",
+  "human_pilot_protocol": {
+    "design": "Randomized task-order crossover with consenting actual analysts; common document set; independent source-quality scoring blinded to condition.",
+    "outcomes": [
+      "correct fact and denominator",
+      "citation resolves to exact source",
+      "unsupported claim count",
+      "elapsed human minutes",
+      "revision minutes",
+      "failure severity"
+    ],
+    "release_gate": "No unsupported material claims; all decision-driving citations correct; quality noninferior to the agreed manual baseline. Report actual participant count and uncertainty before claiming productivity gains."
+  }
+}

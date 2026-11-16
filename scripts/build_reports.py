@@ -1,157 +1,246 @@
-"""Generate executive deliverables from the released public snapshot."""
+"""Regenerate professional v2 deliverables from the packaged analytical case."""
 from pathlib import Path
 import sys
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
 from corporate_ai.pipeline import analyze
-ROOT=Path(__file__).resolve().parents[1];DOC=ROOT/'docs'
-d=analyze();m=d['strategies']['mixed'];hire=d['hiring_reference']['result'];ev=d['evaluation']
-money=lambda x:'$'+f"{x:,.0f}"
-break_even=180000*m['pv_cost']/(m['npv']+m['pv_cost'])
-def save(name,text):(DOC/name).write_text(text.strip()+'\n',encoding='utf-8')
+d=analyze();b=d['bank_case'];risk=d['reliability'];w=d['workflow'];half=w['options'][1]
+mean=risk['expected_coverage_plan'];robust=next(x for x in risk['allocated_policy_curve'] if x['confidence_target']==.9)
+money=lambda x:f'${x:,.0f}'
+pct=lambda x:f'{x*100:.1f}%'
+def save(name,text):(ROOT/name).write_text(text.strip()+'\n',encoding='utf-8')
 
-save('executive-brief.md',f"""
-# AI adoption evidence and the workforce investment decision
-Haojian Dui · Public research and consulting scenario · 16 November 2026
+save('README.md',f'''
+# Corporate AI Adoption and Workforce Strategy
 
-Public peer disclosures help identify credible AI use cases and implementation stages. They cannot supply a firm's internal skill inventory, training success rate or operating return.
+**What should follow an AI rollout: training, mobility, recruitment—or a smaller investment?**
 
-The evidence case covers ten US-listed technology and banking companies in FY2023 and FY2024, with three selected spans from each report. Of the 60 reviewed spans, 23 describe deployment, five pilots, eight plans, eleven people or innovation investment, eight promotional statements and five risks. Deployment includes customer-facing product releases. Eight company-periods have selected internal operating-use evidence. The remaining periods are unknown on that criterion because the excerpt selection is not exhaustive.
+This independently runnable research product connects bank adoption disclosures to task requirements, reliable staffing and an investment decision. Inspect an original statement, change the case, and download the assumptions with the result. Public study by Haojian Dui, developed with AI assistance; no client engagement or independent human-validation claim.
 
-Bank of America describes customer-service AI and a coding pilot in FY2023. JPMorgan's FY2024 report describes an LLM Suite rollout to more than 200,000 colleagues. Microsoft's FY2023 report describes its own support agents using Copilot. These are different organizational scopes and maturity stages. None establishes a causal labor effect.
+[Live application](https://joedhj.github.io/corporate-ai-adoption/) · [Executive brief](docs/executive-brief.md) · [Full case](docs/executive-report.md) · [Career evidence](docs/career-positioning.md) · [Release](https://github.com/JoeDHJ/corporate-ai-adoption/releases/tag/v2.0.0)
 
-In the linked fictional 200-person bank unit, 26 capability equivalents are needed within six months. The minimum-cost mix starts **24 training candidates, seven redeployments and one external hire**. Expected attainment is fractional; these counts are candidate decisions, not guaranteed successful employees. The mix requires **{money(m['upfront_cost'])} upfront** and **{money(m['pv_cost'])} discounted incremental cost** over 36 months. Its **{money(m['npv'])} NPV** depends on assumed annual gross contribution of $180,000 per successful capability. Break-even contribution is about **{money(break_even)} per year** under the same mix and timing.
+![Workforce decision exhibit](docs/figures/v2-decision.png)
 
-At 65% training attainment, the plan requires three hires and nine redeployments and costs $3.31 million in present value. At 50%, the $400,000 upfront cash cap makes demand infeasible. At $30,000 annual contribution, the base mix has negative NPV of about $334,327. Attainment and value measurement are therefore the first decisions to resolve.
+- **Use and risk coexist.** Eleven parsed FY2023–FY2025 reports from four bank groups yield 288 candidate locations and 30 reviewed spans. A Wells Fargo risk paragraph also states current use. Independent axes preserve both. BAC FY2025 remains a visible collection gap.
+- **Expected coverage is a weak guarantee.** The original staffing plan has conditional joint attainment of {pct(mean['joint_probability_independent'])}. A 90% allocated policy reaches {pct(robust['joint_probability_independent'])}, increasing personnel PV cost from {money(mean['pv_cost'])} to {money(robust['pv_cost'])}. Success rates are assumptions.
+- **Value changes the personnel choice.** The base 50% scale selects 23 training candidates and two redeployments, with {money(half['npv'])} modeled 36-month NPV. Full scale is infeasible under the combined $400,000 cash cap. No action is explicitly compared. Task times and value require actual measurement.
 
-Use the [90/180/365-day gates](roadmap.md) to validate workflow quality, capability attainment and incremental operating value before scaling. Keep national occupation projections, current vacancies and employee stocks in their own units.
+## Run independently
+
+Python 3.11+; no third-party runtime dependencies. Download the release wheel, then:
+
+```text
+python -m pip install corporate_ai_adoption-2.0.0-py3-none-any.whl
+corporate-ai demo --out output
+corporate-ai workflow --out output/workflow-case.json
+corporate-ai reliability --out output/reliability-case.json
+```
+
+Open output/index.html yourself, or serve output with `python -m http.server --directory output`. output/presentation.html opens directly into the eight-exhibit presentation. Both HTML files embed their public data and work offline. Imported cases stay local. The browser accepts 1–3 distinct skill pools, 30 candidates per route and matched USD 2026 amounts. Edit exported JSON for all task, timing and cost inputs. The CLI accepts `workflow --input case.json`, containing scenario and workflow objects.
+
+```text
+python -m pip install ".[dev]"
+python -m pytest -q
+node tests/strategy-parity.cjs
+node tests/v2-parity.cjs
+python -m build
+```
+
+## Inspect the evidence and methods
+
+| Layer | Delivered proof | Interpretation |
+| --- | --- | --- |
+| Measurement | Sources, exact locators, 288 candidate locations, independent actor/stage/risk coding | Selected assistant reference judgments; no population adoption rate |
+| Text methods | Grouped TF-IDF centroid, keyword/rule baselines, feature-deduplicated temporal check, axis errors | Development diagnostics; no human accuracy claim |
+| Hiring | Five readable Citi vacancies and eleven collection outcomes | Targeted external demand; no hiring trend or bank comparison |
+| Economics | Workload-derived demand, exact attainment, conservative reliability allocation, joint NPV choice | Conditional scenarios; no causal labor effect or observed savings |
+| Research workflow | Six executed document-filtered retrieval tasks and source checks | Fixed assistant-authored task pack, not an unseen/human benchmark |
+| Delivery | Offline app, complete presentation, Markdown briefs, schemas, CLI, wheel, CI | Reproducible without a paid model or sibling service |
+
+The original ten-company corpus, Microsoft workforce stocks and BLS projections remain context in their original units. Corporate owns firm evidence and workforce decisions; Atlas, Career Fit and Impact remain optional snapshot consumers.
+
+[Methods](docs/methodology.md) · [Knowledge framework](docs/knowledge-framework.md) · [Interface](docs/portfolio-interface.md) · [Review record](docs/review-log.md) · [Data rights](DATA_NOTICE.md)
+''')
+
+save('docs/executive-brief.md',f'''
+# An AI rollout needs a workforce decision
+Haojian Dui · 16 November 2026 · v2.0.0 · Public evidence and explicit scenarios
+
+Bank disclosures identify operating use cases. A workforce investment additionally requires task requirements, eligible people, a reliability constraint and an incremental-value mechanism.
+
+Eleven complete annual reports cover JPMorgan Chase, Bank of America, Citi and Wells Fargo across FY2023–FY2025, with BAC FY2025 missing after collection failure. Thirty reviewed spans sit inside 288 candidate locations. JPMorgan FY2024 LLM Suite rollout reach and FY2025 CIB active users describe different populations; they cannot establish a decline. Wells Fargo's repeated use-plus-risk disclosure is not a new annual deployment event.
+
+The original fixed-demand staffing mix meets expected requirements but has only **{pct(mean['joint_probability_independent'])} joint attainment** under additional independent Bernoulli assumptions. A conservative 90% allocated policy yields **{pct(robust['joint_probability_independent'])}**, at **{money(robust['pv_cost'])}** personnel PV cost versus **{money(mean['pv_cost'])}**. These probabilities are conditional calculations, not measured employee success rates.
+
+The completed workflow case derives separate skill demands from task minutes, reserves integration cash, and jointly compares cost, readiness and reliability. Of no action and 25%, 50%, 100% scale, **50%** wins under base assumptions: **23 training candidates and two redeployments**, **{money(half['npv'])} modeled NPV**, and **{pct(half['break_even_realization'])} selected-plan break-even realization**. Full scale is cash-constrained. At zero realized value, no action wins. A changed value can change the optimal mix, so the selected-plan threshold is not a global switching threshold.
+
+Use an actual analyst pilot to measure task/revision time, source correctness, attainment and capacity monetization before investment. Six executed software tasks do not measure human productivity. Five readable Citi vacancies establish selected role requirements, not hiring growth.
 
 [Interactive case](https://joedhj.github.io/corporate-ai-adoption/) · [Full report](executive-report.md) · [Methods](methodology.md)
-""")
+''')
 
-label_table='\n'.join(f'| {k.replace("_"," ").title()} | {v} |' for k,v in d['summary']['review_labels'].items())
-save('executive-report.md',f"""
+table='\n'.join(f"| {pct(x['scale'])} | "+(f"{money(x['upfront_with_integration'])} | {money(x['pv_total_cost'])} | {money(x['npv'])} | {pct(x['staffing']['joint_probability_independent'])} |" if x['staffing']['feasible'] else 'Infeasible | — | — | — |') for x in w['options'])
+save('docs/executive-report.md',f'''
 # Corporate AI Adoption and Workforce Strategy
-Haojian Dui · 16 November 2026 · Version 1.0.0
+Haojian Dui · 16 November 2026 · Version 2.0.0
 
-## The management question
+## The operating question
 
-Which AI claims establish an operating use case, and what workforce investment should follow? The project combines a retrospective public-company evidence case with a reusable investment model. The evidence case measures company disclosures. The model turns explicit staffing, cost and timing assumptions into a feasible capability plan. This is a public portfolio study, with no claim of a paid engagement or access to internal company data.
+Which AI claims establish use, and what workforce investment should follow? The study makes the transition explicit: disclosure → workflow → task time → skill demand → reliable staffing → realized value. The applied workflow is public-document research and evidence checking, motivated by bank coding, research and document-processing uses. Public information establishes relevance; internal task times, candidate pools and operating return remain assumptions.
 
-An AI keyword count combines supplier products, internal deployments, planned investment, research, pilots and discussion of risks. A workforce decision requires a specific workflow, a capability requirement, an eligible candidate pool and a test of incremental value. Those objects organize this report and dashboard.
+## Bank evidence and measurement
 
-## 1. Public-company evidence
+Four large US-listed bank groups are followed across three December year ends. Eleven full official annual reports were parsed. BAC FY2025 could not be downloaded completely from SEC; its issuer CDN returned 403. That cell is a collection failure. A Goldman Sachs expansion also failed at its official CDN and was excluded from this release cohort, not assigned a negative outcome. The cohort is purposive and access-conditional.
 
-The peer group consists of Microsoft, Adobe, IBM, Accenture, Cisco, NVIDIA, Salesforce, Alphabet, JPMorgan Chase and Bank of America. These large US-listed issuers are relevant to enterprise AI supply or knowledge-intensive financial services. The purposive group permits statement-level comparison; it is not representative of all firms, industries or countries.
+All parsed pages are searched for the bank lexicon. Eligible 8–80-word punctuation spans yield 288 candidate locations; PDF layout, hyphenation, implicit tool references and sentence limits can miss context. This is full parsed-text scanning, not exhaustive human adoption review. Thirty selected spans have exact locators and assistant reference judgments. The earlier ten-company corpus remains a separate technology comparison.
 
-The reporting window is FY2023–FY2024, the early generative-AI adoption wave. Fiscal-year ends differ, including January year ends. Native fiscal labels are retained instead of relabeling observations as calendar years. Twenty official annual reports or filed 10-Ks were accessed on 16 November 2026. Complete parsed report text remains in the ignored local collection directory. The public package contains short exact excerpts, physical PDF page numbers or normalized HTML character positions, source links and access metadata.
+Actor and stage are separate from technology, people investment and risk. Wells Fargo states current use and warns about uncertain outcomes in one paragraph. Its FY2023/FY2024 repetition is not a second event. Citi FY2023 reviewed risk language leaves internal adoption unknown. Fiscal period and event time differ; exact event dates remain null where the span does not establish them. Rollout reach, active users, interactions and reported capacity hours retain different denominators and are not combined into an intensity score.
 
-Three spans per company-period capture contrasts in maturity and scope. This is a selected set of 60 statements, not an exhaustive census of AI language. Every selected span was matched to the locally parsed original. The source register records document sizes and parsed page counts.
+The binary text diagnostic contains 82 selected assistant-reference rows including financial negatives. TF-IDF vocabulary, IDF and class centroids are fitted outside each held-out company. Rules retain development exposure. The temporal check excludes one feature-identical financial sentence whose numbers changed, leaving six FY2025 rows. Actor, stage and risk errors are separately published. Technology, people and numeric fields are rule-derived. None of these results establishes independent human accuracy.
 
-### Exhibit 1. Meaning of selected AI statements
+## Hiring and task requirements
 
-| Review label | Selected spans |
-| --- | ---: |
-{label_table}
+Five readable Citi vacancy snapshots, from eleven attempted Citi/JPMorgan pages, request combinations of Python, production delivery, integration, evaluation, retrieval and governance. Collection outcomes distinguish fetch failure from JavaScript-only pages. Four primary-location advertised salary ranges are retained; one missing parsed range remains null. The targeted AI-role sample cannot establish skill prevalence, hiring trends or employer differences. Senior role qualifications exceed what this project demonstrates.
 
-Notes: The denominator is 60 selected spans, three per report. Labels are single primary review judgments; source-specific rationales explain mixed statements. A separate scope field distinguishes issuer operating use from customer/product evidence. No population adoption rate is inferred.
+The fictional research unit processes 60,000 document items monthly at full scale. Specialist task minutes are 0.8 for evaluation, 1.2 for integration and 0.6 for data exceptions. At 100 productive hours per person-month, the distinct requirements are 8, 12 and 6 FTE. Assisted execution is eight minutes and expected rework 0.8 minutes, against a 20-minute baseline. These are planning assumptions awaiting observation. Disjoint candidate pools prevent counting the same person as several successful skill assignments.
 
-![Statement categories and workforce scenario](figures/decision-evidence.png)
+## Reliability and investment
 
-**BAC-2023-E1** says the bank uses AI in customer service, while **BAC-2023-E2** describes a coding pilot. The latter cannot be promoted to full deployment. **JPM-2024-E3** reports a completed LLM Suite rollout to more than 200,000 colleagues. This is internal-use evidence, whereas **MSFT-2024-E1** describes named enterprise customers using Microsoft products. **IBM-2024-E2** describes equipping IBM consultants with AI tools, and **CSCO-2024-E2** describes AI use in Cisco's service operation.
+The original expected-coverage plan has {pct(mean['joint_probability_independent'])} conditional joint attainment. Exact Bernoulli distributions yield skill probabilities and expected shortfall. Equal failure-budget allocation provides a sufficient joint constraint. The 90% policy has a {pct(robust['joint_probability_lower_bound'])} union lower bound and {pct(robust['joint_probability_independent'])} independent product probability. Candidate independence within each skill is assumed; cross-skill independence is additionally required for the product. The allocated policy is conservative, not the unrestricted globally optimal joint chance constraint.
 
-Eight report-periods contain selected internal deployment evidence. The other twelve remain unknown: absence from three excerpts does not establish non-use. Nor does an operational claim independently verify technical performance or economic return. A rollout count measures access or availability, not sustained active use or productivity.
+At each scale, the workflow optimizer reserves integration cash and jointly compares personnel PV cost, slowest readiness and joint probability. It enumerates eligible integer mixes and applies sufficient Pareto dominance before checking shared-budget combinations. A more expensive early or reliable route can beat the cheapest staffing mix. Value is counted once per workflow, conditional on all skill demands being met, after the latest route and permitted launch. Redundant candidates do not create additional capability-level benefits.
 
-These statements help management choose examples and questions without a spurious adoption index. Bank of America's coding pilot and JPMorgan's colleague rollout concern different firms and workflows, so the comparison cannot estimate a common transition probability. The linked scenario uses the disclosures to motivate evaluation, governance and workflow-integration capabilities.
+| Scale | Upfront incl. integration | Total PV cost | Workflow NPV | Conditional joint attainment |
+| --- | ---: | ---: | ---: | ---: |
+{table}
 
-## 2. Text measurement and actual evaluation
+Amounts use constant USD 2026 assumptions over 36 months and an 8% annual discount rate with monthly timing. Recurring staffing costs start in month one for all candidates, including failures. Platform costs also start in month one. Training includes learning time; redeployment includes backfill/opportunity cost; hires include fully loaded compensation. Existing base payroll is common to alternatives. Integration scales proportionally here. The 50% plan uses 23 training candidates and two redeployments and breaks even at {pct(half['break_even_realization'])} realization for its selected mix. Reoptimization can change that mix.
 
-The keyword baseline assigns deployment to every AI-containing span. The proposed method is a deterministic context-rule NLP classifier. It uses action and timing cues, risk/negative assertions, people-investment terms and a separate scope heuristic. It requires no model endpoint, training-data download or API key, and exposes the triggering rule.
+Released hours are productive capacity. Value/hour and realization convert that capacity to incremental contribution or avoided cost under an assumed mechanism. They are not observed wages or cash savings. Do not add revenue from the same hours a second time. No action has zero incremental NPV. The policy comparison covers four discrete scale choices, not every possible scale. Attrition, taxes, inflation, partial value under skill shortfall and salvage value remain omitted assumptions.
 
-A single AI assistant reviewed the sixty actual source spans against the written taxonomy and recorded a reason for each label. There was no independent human annotation, blinded coding or held-out evaluation. Rule design and edge-case corrections occurred during development. Scores describe agreement on this selected set, not production or out-of-sample accuracy.
+## Delivery and actual evidence still needed
 
-### Exhibit 2. Agreement with recorded rubric review
+The app provides original-source links, a bank-period matrix, executable task presets, locally editable inputs, JSON import/export, and a matching Markdown brief. The eight-exhibit presentation supports a business discussion without a coding walkthrough. The wheel includes data, schemas and web assets and has no runtime service or paid-model dependency. Python/browser parity and independent small enumerations check the calculations.
 
-| Method | Correct / reviewed | Agreement | Macro F1 over represented labels |
-| --- | ---: | ---: | ---: |
-| AI keyword baseline | 23/60 | 38.3% | {ev['keyword_baseline']['macro_f1_supported_labels']:.3f} |
-| Context rules | 46/60 | 76.7% | {ev['context_rules']['macro_f1_supported_labels']:.3f} |
+The six fixed retrieval tasks match assistant-authored references and exact source locators. They search only the released excerpts after document filtering. They are functional task checks, not unseen retrieval validation or employee productivity estimates. A real analyst crossover pilot needs actual consented participation, independent quality review and observed task/revision times. Finance must verify how released capacity is monetized before calibration can support a real investment.
 
-Context rules improve agreement by 23 statements, or 38.3 percentage points. Fourteen disagreements remain visible. Conditional computing-cost warnings can be read as pilots; training-hours and practitioner-stock statements can be missed as people investment. Vehicle pilot language also differs from an organizational experiment. These errors support assisted review for operating decisions. Confusion counts and all error IDs are in [evaluation.json](../artifacts/evaluation.json).
+[Knowledge framework](knowledge-framework.md) · [Career evidence](career-positioning.md) · [Decision gates](roadmap.md) · [Review record](review-log.md)
+''')
 
-## 3. Workforce composition and external demand
+save('docs/methodology.md','''
+# Methods and equations — v2
 
-Microsoft's disclosed global full-time employment rose from 221,000 in FY2023 to 228,000 in FY2024. R&D employment rose from 72,000 to 81,000, a 12.5% increase. Its share increased from 32.58% to 35.53%, or **2.95 percentage points**. Operations fell from 89,000 to 86,000; sales and marketing stayed at 45,000; general and administration rose from 15,000 to 16,000. The dashboard uses disclosed totals as denominators. These rounded functional stocks do not identify AI occupations, net recruitment flows or an AI effect.
+The frozen public snapshots reproduce the app offline. Collection is separate and may fail when issuer sites change. Complete parsed reports remain in ignored data/raw. Source identity, paths, byte sizes, timestamps and physical-page/character locators track provenance; no explicit hashes are used.
 
-Accenture reports approximately 44 million training hours in FY2024, 10% above the prior year, predominantly due to generative-AI training (**ACN-2024-E2**). It also reports approximately 57,000 Data & AI practitioners at year end (**ACN-2024-E3**). Hours are not trained people; Data & AI practitioners are not all AI users. The FY2023 promise to double AI talent to 80,000 (**ACN-2023-E1**) is a target, not an observed stock.
+The bank lexicon includes AI, artificial intelligence, machine learning, generative AI, Copilot, LLM Suite, Citi tools, Erica and Fargo. Issuer names Bank of America and Wells Fargo alone are not hits. Candidate locations represent eligible punctuation spans, not adoption intensity. Reviewed actors/stages/risk are assistant judgments; other axes are rule-derived. The binary deployment target includes customer products, unlike internal-use evidence in the matrix. Repeated text does not establish a new event.
 
-Six national occupations use a single official BLS 2025–2035 projection vintage. Data scientists have projected growth of 34.6%, information security analysts 21.0%, and software developers 10.2%. Customer service representatives have projected contraction of 5.3%, yet 289,500 annual openings because openings include replacement demand. A shrinking occupation can still require recruiting. These are official projections, not observed vacancies at peer firms, and their baseline differs from the corporate report window.
+TF-IDF cosine nearest-class centroids fit vocabulary, IDF and centroids on training data only, without parameter search. Company groups are held out together. Temporal checks fit FY2023/FY2024 and remove test rows with token-count features identical to training. Rules were developed against part of the material. Published confusion counts, axis disagreements and the six-row future-language sample are development diagnostics, not independent human validation.
 
-Three official job descriptions provide a separate employer-requirements check as of November 2026: Amazon's Prime Video Economist role and Accenture's AI & Data Strategy and banking Talent & Workforce roles. They ask for AI evaluation, quantitative business cases, workforce scenarios and executive communication. The [employer matrix](employer-requirements.md) links requirements to artifacts and capability limits. A versioned tag taxonomy makes this small cross-section reusable; it cannot establish a vacancy trend or a workforce skill-share change.
+For each skill j, candidate counts n_jr on routes r have independent Bernoulli probabilities p_jr. Routes ready after the deadline contribute zero. Convolution gives P_j(k). Attainment is sum over k >= demand_j; expected shortfall is sum max(0,demand_j-k)P_j(k).
 
-A consistent historical employer vacancy panel was unavailable within the permitted inputs. The release supplies a validated vacancy-import adapter and specifies the repeated observations and coverage denominator needed to analyze hiring response. National projections and employee stocks are not substituted for that missing panel.
+For target q across J skills, equal allocation requires every skill's probability >= 1-(1-q)/J. The union bound then ensures joint probability >= q without cross-skill independence. The displayed product additionally assumes independence across skills. Constant success and within-skill independence remain assumptions. The common-shock calculation is a stress, not a calibrated correlation estimate.
 
-## 4. A constrained workforce investment case
+The reliability curve minimizes personnel PV cost in each allocated policy. It is not a global efficient frontier. The workflow solver maximizes workflow NPV within that same policy class by comparing cost, probability and latest readiness. Pareto pruning uses upfront/PV cost, launch time and probability. Independent tiny exhaustive enumerations test the optimum. Scale choices are 0%, 25%, 50% and 100%.
 
-The fictional 200-person US bank operations unit needs eight evaluation/control capabilities, twelve workflow-integration capabilities and six data/governance capabilities by month six. Requirements are distinct. Candidate pools do not overlap across skill families or routes. These are planning assumptions, not measurements of JPMorgan or Bank of America.
+Demand_j = ceil(scaled monthly volume × specialist minutes_j / 60 / productive hours per person-month). A relative 1e-12 arithmetic tolerance avoids adding a worker when a mathematical integer becomes 2.0000000000000004. Separate disjoint skill demands are capped at 100 each. The browser permits three skill pools and 30 candidates per route.
 
-Training capacity is 24 candidates, with 80% expected attainment and month-four readiness. Redeployment capacity is ten, with 90% attainment and month-two readiness. External hiring has sufficient modeled capacity, full attainment and month-three readiness. Training costs $9,000 upfront and $12,000 annually per candidate; redeployment costs $5,000 and $42,000; hiring costs $24,000 and $150,000. Family-specific capacities are in the input JSON.
+Human time after adoption = assisted execution + specialist task minutes + rework probability × rework minutes. Released hours = scaled volume × (baseline minutes - after minutes) / 60. Expected monthly value = released hours × value/hour × realization × joint attainment probability. The all-or-nothing assumption assigns no workflow contribution when any skill requirement fails. Value begins strictly after permitted launch and slowest selected readiness. Recurring staffing/platform costs start in month one; upfront spend is at month zero. Discount factors use (1+annual rate)^(month/12). Integration is reserved in the cash cap and counted once.
 
-Training upfront cost includes $5,000 instruction and eighty learning hours valued at $50 per hour. Recurring training cost is an incremental pay/license uplift. Redeployment recurring cost represents backfill or foregone contribution. Hiring cost is fully loaded incremental payroll. Existing common payroll is excluded. Recurring costs apply to every candidate from month one, including unsuccessful candidates. Benefits apply only to expected successful capability after readiness. The model assumes no attrition after attainment, inflation, tax or terminal value.
+Workflow NPV does not use the legacy annual_value_per_capability field; that field remains for the original fixed-demand comparison. Legacy per-capability benefit fields are removed from workflow staffing exports. Currency/price year must match; browser cases use USD 2026. The selected-plan realization threshold holds staffing fixed and is not a global switching threshold.
 
-The optimizer enumerates integer route mixes, rejects failures of expected capability coverage, readiness or the $400,000 upfront cap, and minimizes discounted incremental cost over 36 months. A Pareto frontier retains per-skill upfront/cost tradeoffs before combining them. Monthly discounting uses an 8% annual effective rate. This is an expected-coverage plan, not guaranteed staffing or an NPV-maximizing expansion strategy.
+Install the wheel and use corporate-ai demo, workflow or reliability. Pass an exported case through workflow --input. scripts/collect_banks.py collects original public reports; scripts/build_bank_case.py rebuilds the pinned assistant references from local texts. Review indexes after parser/source changes. scripts/benchmark_research.py reruns the fixed task pack when local originals exist. scripts/build_reports.py and scripts/build_v2_figures.py regenerate professional outputs. A frozen installation needs no originals or network.
+''')
 
-### Exhibit 3. Base plan and route-policy alternatives
+save('docs/knowledge-framework.md','''
+# Economic knowledge made operational
 
-| Policy | Candidate decisions | Upfront cost | 36-month PV cost |
-| --- | --- | ---: | ---: |
-| Minimum-cost mixed plan | 24 train; 7 redeploy; 1 hire | {money(m['upfront_cost'])} | {money(m['pv_cost'])} |
-| Training only | Insufficient capacity | — | — |
-| Redeployment only | Insufficient capacity | — | — |
-| Hiring only, base cash cap | Aggregate upfront budget exceeded | — | — |
-| Hiring-only reference, cash cap relaxed to $2m | 26 hires | {money(hire['upfront_cost'])} | {money(hire['pv_cost'])} |
-
-The mixed plan has 19.2 expected training successes, 6.3 redeployment successes and one hiring success. Coverage is checked by skill; a surplus in one skill cannot cover another skill's shortage. The hiring reference relaxes a constraint and lies outside the base feasible set. Its cost difference is a scenario comparison, not an observed saving.
-
-At assumed annual gross contribution of $180,000 per successful capability, the mixed plan has NPV of **{money(m['npv'])}**, with undiscounted payback in month five. Under the same plan, annual contribution needed for zero NPV is about **{money(break_even)}**. At $30,000, NPV is negative. Minimum cost alone does not justify undertaking a value-destroying project.
-
-At 65% training attainment, the mix uses 24 trainees, nine redeployments and three hires, raising PV cost to $3.31 million. At 50%, no mix meets demand within the cash cap. At 95%, four redeployments and one hire suffice alongside 24 trainees, reducing PV cost to $1.88 million. The dashboard changes demand, attainment, budget and hire delay and downloads the exact changed inputs and results.
-
-## 5. Implementation and decision gates
-
-The first ninety days should establish workflow quality and candidate eligibility, then measure attainment and incremental value. By day 180, compare actual attainment with the capacity assumptions and recruit for measured residual gaps. By day 365, expand only workflows with maintained quality and positive value, preserving escalation and review responsibilities.
-
-The [roadmap](roadmap.md) assigns proposed owners, evidence and gates. The [management presentation](management-presentation.md) structures an eight-slide decision discussion. The offline dashboard, CLI and [portfolio.v1 outputs](portfolio-interface.md) reproduce this case without sibling services. The product demonstrates evidence-to-decision work, with no causal identification or enterprise implementation claim.
-""")
-save('management-presentation.md',"""
-# Management presentation outline
-Haojian Dui · Public research case and workforce consulting scenario
-
-| Slide | Decision message | Exhibit / discussion |
+| Idea | Implementation | Evidence needed to replace assumptions |
 | --- | --- | --- |
-| 1. Decision | Define workflows and capabilities before choosing staffing routes. | Observations, coding judgments and management assumptions. |
-| 2. Peer evidence | Internal use, customer products, pilots and plans differ. | BAC-2023-E2; JPM-2024-E3; MSFT-2024-E1. |
-| 3. Measurement | Context helps; review remains necessary. | 23/60 baseline versus 46/60 context agreement; assistant labels, no independent human validation. |
-| 4. People and demand | Stocks, openings and skill requirements have different units. | Microsoft shares, BLS projections, selected official JDs. |
-| 5. Requirements | Need 8 evaluation, 12 workflow and 6 data capabilities. | Route capacity, attainment, readiness and costs are assumptions. |
-| 6. Fundable mix | Train 24, redeploy 7, hire 1. | $275,000 upfront; $2.23m PV incremental cost; coverage by skill. |
-| 7. Decision sensitivity | Attainment and operating value govern feasibility and return. | 50% attainment infeasible; $30,000 annual value yields negative NPV. |
-| 8. Execute in gates | Release spending as quality, attainment and value become observable. | 90/180/365-day owners and stop/revise/scale decisions. |
+| Task substitution and new tasks | Count execution, evaluation, integration, exceptions and rework separately | Observed task/revision minutes at equal quality |
+| Complementary intangible investment | Integration, learning time and platform costs precede contribution | Actual cost, ramp and skill-transfer observations |
+| Human capital and mobility | Distinct pools, eligible capacity, success and backfill costs | Skill assessment, attainment, attrition and backfill |
+| Stocks and flows | Employee functions, vacancy snapshots and national projections remain separate | Comparable source populations and genuine longitudinal observations |
+| Measurement error | Independent axes, unknown states and disclosed coding failures | Independent human references and larger future cases |
+| Uncertain decisions | Exact probability, shortfall, allocated reliability and no action | Failure consequences and correlated-success evidence |
+| Opportunity cost | Realization is needed to monetize released capacity | Finance-verified avoided hiring, backlog conversion or service contribution |
 
-Speaker prompt: replace skill inventory, route capacities, costs and value with approved operating records. Do not infer internal inputs from a peer product announcement.
-""")
-save('roadmap.md',"""
-# 90/180/365-day workforce implementation roadmap
-Consulting scenario for a hypothetical bank unit. Owners are proposed roles, not assigned real employees.
+Acemoglu and Restrepo's task framework explains why automation can displace tasks while new tasks change labor demand. It motivates task accounting here; it does not supply this case's coefficients or a bank headcount forecast. [Automation and New Tasks, NBER w25684](https://www.nber.org/papers/w25684).
 
-| Horizon | Work and accountable owner | Evidence | Decision gate |
+Brynjolfsson, Rock and Syverson describe complementary investment in the productivity J-curve. This motivates separating early integration/learning costs from delayed contribution; the case does not estimate a J-curve. [The Productivity J-Curve, NBER w25148](https://www.nber.org/papers/w25148).
+
+Selection prevents causal interpretation: banks adopting AI also change processes, technology, strategy and staffing. Disclosure comparisons cannot isolate an AI employment effect. A prospective analyst task experiment can identify effects on defined tasks under its assignment and measurement conditions; it cannot alone identify firmwide employment effects. Actual participants, independent quality review and task-time observations are required. The included protocol prepares that work without inventing records.
+''')
+
+save('docs/career-positioning.md','''
+# What this project demonstrates in hiring
+
+Position this as evidence-led AI workforce strategy with reproducible analysis. Its strongest role families are applied research/economics, workforce analytics, AI strategy and analytical product work. Senior job descriptions reveal relevant requirements; the project does not substitute for senior experience.
+
+| Dimension | Concrete proof | Interview demonstration | Boundary |
 | --- | --- | --- | --- |
-| 0–30 days | Operations lead defines two workflows; data owner validates access; HR measures baseline skills. | Task volumes, handling time, quality baseline, control requirements and disjoint eligible pools. | Select workflows with measurable value and an escalation path. |
-| 31–90 days | Learning lead pilots training; model-risk lead evaluates tasks; finance verifies cost. | Assessment results, task quality, material errors, usable time and incremental costs. | Refit attainment and value assumptions. Require positive NPV in a documented downside case before scaling. |
-| 91–180 days | Mobility lead negotiates releases and backfill; recruiting fills measured gaps. | Capability attainment by family, readiness dates, backfill cost, fill time and cash spend. | Meet six-month requirements by skill, or change demand/deadline/budget explicitly. |
-| 181–365 days | Operations and finance review sustained value; governance checks incidents. | Repeated quality, contribution, utilization, attrition and escalation completion. | Expand workflows with maintained quality and positive incremental value; reduce or pause failures. |
+| Ability to frame a problem | Disclosure → tasks → staffing risk → investment | Explain why rollout reach cannot determine a training budget | No internal client discovery |
+| Knowledge depth | Task accounting, opportunity cost, complementarity and uncertainty | Explain why capacity is not cash and expected coverage is not guaranteed | Parameters remain assumptions |
+| Analytical skill | Exact probability, integer choice, joint NPV, grouped TF-IDF and visible errors | Show an earlier costly hire beating the cheapest plan | No causal employment estimate or independent labels |
+| Engineering | Packaged data/schemas, CLI, offline app, parity, CI and clean installation | Import a case and reproduce the decision from a wheel | No enterprise service operations history |
+| Experience | Matrix, task presets, missing states, stale-export protection, matching brief | Move from source to a changed-input decision | No actual external usability participants |
+| Presentation | Two analytical figures, eight rendered exhibits, short/full reports | 30-second result, three-minute case, deeper source/method follow-up | Visual clarity does not validate assumptions |
 
-Expected attainment is not guaranteed headcount. Reassess eligibility and overlap before using the plan. Check recurring and opportunity costs against finance records.
+Project description, only if the author can explain and defend the work: “Developed a reproducible banking AI evidence and workforce investment study, combining source-level adoption measurement, grouped text diagnostics, exact staffing reliability and workload-based NPV scenarios in an offline decision application.” Attribute AI assistance accurately. Do not present modeled NPV as money saved for a client.
 
-Scorecard: task quality, material error rate, attained capability, readiness, cash spend, incremental contribution and completed escalations. Set thresholds from actual business requirements before an operating pilot; this portfolio does not invent client thresholds.
-""")
-print('Executive deliverables regenerated.')
+For economics roles, lead with measurement and identification. For workforce analytics, lead with task demand, readiness and mobility cost. For AI strategy, lead with the operating question and threshold. For analytical engineering, lead with data contracts, reproducibility, error handling and parity. Each route should include an original-source check and a live changed-input calculation.
+
+Real analyst participation, independent coding and measured quality/value outcomes would add evidence beyond what software alone can provide. The task pack, protocol and adapters prepare those steps; simulated logs would not establish them.
+''')
+
+save('docs/management-presentation.md',f'''
+# Eight-exhibit presentation — v2
+
+Use the app's Presentation tab or generated presentation.html. Each is a complete rendered view.
+
+1. Which operating evidence warrants workforce investment?
+2. Preserve actor, stage and use-plus-risk meaning.
+3. Eleven bank reports, 30 reviewed spans, 288 candidate locations; gaps visible.
+4. Mean-coverage joint attainment {pct(mean['joint_probability_independent'])}; allocated 90% policy {pct(robust['joint_probability_independent'])}.
+5. No action and three scales; base 50% NPV {money(half['npv'])}; full scale cash-constrained.
+6. Selected-plan realization threshold {pct(half['break_even_realization'])}; recompute when assumptions change.
+7. Process, learning, controls and finance owners verify measured gates.
+8. Source measurement, methods, complete app and independent reproduction.
+
+Figures are reusable with their scenario notes. No observed savings or client engagement is claimed.
+''')
+
+save('docs/demo-script.md','''
+# Three-minute demonstration — v2
+
+1. Open Decision brief. Explain conditional shortfall and scale selection; name the scenario assumptions.
+2. Open Bank evidence. Click WFC FY2024 to inspect use plus risk. Choose citi-2025-coding in the task menu and check the source. Distinguish capacity from cash.
+3. Open Workflow decision. Show workload-derived demand. Set realization to zero, recalculate and show no action. Reset. Increase the cash cap to $700,000 and inspect the newly feasible full-scale alternative and its route mix.
+4. Export the changed case and matching Markdown brief. Import the JSON back and verify the decision. Inputs stay local.
+5. Open Methods. Inspect axis failures and the small feature-deduplicated time check; disclose assistant reference labels.
+6. Open the eight-exhibit Presentation. End with wheel installation and the actual pilot evidence needed before real investment.
+''')
+
+save('docs/roadmap.md','''
+# Decision gates with accountable evidence
+
+| Gate | Owner | Required evidence | Decision |
+| --- | --- | --- | --- |
+| First 30 days | Process/analyst lead | Actual baseline time, quality, exceptions and data access | Confirm volume and specialist task minutes |
+| Days 30–60 | Learning/workforce | Assessed eligible pools, actual attainment and transfer | Replace capacity/success assumptions |
+| Days 60–90 | Controls | Independent source quality and failure severity | Permit or stop workflow use |
+| Day 90 | Finance/process | Actual integration/platform costs and capacity monetization | Recompute scale and no action |
+| Day 180 | Workforce/finance | Attrition, correlated failure, sustained quality/value | Scale, redesign or defer |
+| Day 365 | Executive owner | Comparable outcomes and refreshed labor signals | Renew business case and ownership |
+
+The software, public case and decision flow are delivered. Independent human coding, actual analyst experiments and client outcomes require real participation; synthetic records cannot complete them. A disclosure-count regression would not resolve these gaps.
+''')
+
+save('docs/implementation-status.md','''
+# Implementation status — v2.0.0
+
+Delivered: preserved v1; bank cohort through FY2025 with eleven parsed reports and one missing cell; 288 locations; 30 multi-axis references; grouped TF-IDF and feature-deduplicated temporal checks; axis errors; five real Citi snapshots and eleven collection outcomes; exact conditional attainment/shortfall; conservative reliability; workload demand and joint NPV personnel choice; no action/three scales; case import/export and matching brief; task presets; eight presentation views; professional reports and reproducible package.
+
+Boundaries: assistant labels, no human-study participants, no causal employment effect, no observed client return, no representative vacancy sample. BAC FY2025 and Goldman Sachs report collection encountered download failures/403; JPMorgan vacancies required rendering and one Citi vacancy failed. Coverage outcomes remain explicit. Full original text stays local; only short excerpts enter the public package.
+
+See review-log.md and release-record.md for actual validation and publication. Changed/failed paths receive targeted rechecks; unchanged passed checks do not trigger repeated broad audits.
+''')
+print('Regenerated v2 README and 10 professional reports.')

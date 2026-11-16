@@ -21,7 +21,15 @@ props['scenario']={'$ref':'#/$defs/scenario'}
 props['jobs']={'type':'array','items':{'allOf':[{'$ref':'#/$defs/metadata'}],'required':['company_id','source_native_id','skill_coding_status'],'properties':{'skill_coding_status':{'const':'estimated'}}}}
 portfolio['properties']=props
 output={'allOf':[{'$ref':'#/$defs/metadata'}],'type':'object','required':['inputs','results'],'properties':{'status':{'const':'scenario'},'inputs':{'$ref':'#/$defs/scenario'},'results':{'type':'object'}}}
-for name,schema in [('scenario',scenario),('vacancy',vacancy),('portfolio.v1',portfolio),('scenario-output',output)]:
+workflow_fields=['monthly_volume','baseline_minutes','assisted_minutes','rework_probability','rework_minutes','productive_hours_month','hour_value','realization_rate','integration_cost','annual_platform_cost','launch_month','confidence','tasks']
+workflow={'type':'object','allOf':[{'$ref':'#/$defs/metadata'}],'required':workflow_fields,'properties':{k:{'type':'number','minimum':0} for k in workflow_fields if k not in ['tasks','launch_month']}}
+for k in ['rework_probability','realization_rate','confidence']:workflow['properties'][k]['maximum']=1
+workflow['properties']['productive_hours_month']['exclusiveMinimum']=0
+workflow['properties']['launch_month']={'type':'integer','minimum':0,'maximum':120}
+workflow['properties']['tasks']={'type':'array','minItems':1,'items':{'type':'object','required':['skill_id','minutes_per_item'],'properties':{'skill_id':{'type':'string','minLength':1},'minutes_per_item':{'type':'number','minimum':0}}}}
+workflow['properties']['status']={'const':'scenario'}
+case={'type':'object','required':['schema_version','scenario','workflow'],'properties':{'schema_version':{'const':'portfolio.v1'},'scenario':{'$ref':'#/$defs/scenario'},'workflow':workflow,'results':{'type':'object'}}}
+for name,schema in [('scenario',scenario),('vacancy',vacancy),('portfolio.v1',portfolio),('scenario-output',output),('workflow-case',case)]:
     doc={'$schema':'https://json-schema.org/draft/2020-12/schema','title':name+' contract',**schema,'$defs':defs}
     (P/(name+'.schema.json')).write_text(json.dumps(doc,indent=2)+'\n',encoding='utf-8')
-print('Saved four public JSON Schemas.')
+print('Saved five public JSON Schemas; runtime validates cross-field units and constraints.')

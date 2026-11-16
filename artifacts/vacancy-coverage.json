@@ -1,0 +1,132 @@
+{
+  "schema_version": "portfolio.v1",
+  "source_id": "BANK-VACANCY-COLLECTION-V2",
+  "source_url": null,
+  "retrieved_at": "2026-11-16",
+  "source_vintage": "Official job pages accessed 2026-11-16",
+  "geography": "Selected Citi and JPMorgan official career sites",
+  "unit_of_observation": "attempted vacancy-page collection",
+  "period": "2026-11-16",
+  "currency": null,
+  "price_year": null,
+  "status": "estimated",
+  "snapshot_date": "2026-11-16",
+  "attempted_pages": 11,
+  "retrieved_pages": 5,
+  "records": [
+    {
+      "company": "C",
+      "source_url": "https://jobs.citi.com/job/irving/generative-ai-engineering-lead-senior-vice-president/287/102816963472",
+      "native_url_id": "102816963472",
+      "retrieved_at": "2026-11-16T09:06:04.725906+00:00",
+      "collection_status": "retrieved",
+      "error": null
+    },
+    {
+      "company": "C",
+      "source_url": "https://jobs.citi.com/job/new-york/vice-president-generative-ai-technical-expert-data-science-and-artificial-intelligence-hybrid/287/102161054480",
+      "native_url_id": "102161054480",
+      "retrieved_at": "2026-11-16T09:06:04.726700+00:00",
+      "collection_status": "retrieved",
+      "error": null
+    },
+    {
+      "company": "C",
+      "source_url": "https://jobs.citi.com/job/-/-/287/102161045008",
+      "native_url_id": "102161045008",
+      "retrieved_at": "2026-11-16T09:06:04.727173+00:00",
+      "collection_status": "retrieved",
+      "error": null
+    },
+    {
+      "company": "C",
+      "source_url": "https://jobs.citi.com/job/new-york/senior-generative-ai-engineer/287/102161046336",
+      "native_url_id": "102161046336",
+      "retrieved_at": "2026-11-16T09:06:04.727593+00:00",
+      "collection_status": "retrieved",
+      "error": null
+    },
+    {
+      "company": "C",
+      "source_url": "https://jobs.citi.com/job/-/-/287/94846498992",
+      "native_url_id": "94846498992",
+      "retrieved_at": "2026-11-16T09:06:07.115424+00:00",
+      "collection_status": "fetch_failure",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "company": "C",
+      "source_url": "https://jobs.citi.com/job/jersey-city/lead-generative-ai-python-engineer-vice-president/287/102161041056",
+      "native_url_id": "102161041056",
+      "retrieved_at": "2026-11-16T09:06:07.401533+00:00",
+      "collection_status": "retrieved",
+      "error": null
+    },
+    {
+      "company": "JPM",
+      "source_url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210780109",
+      "native_url_id": "210780109",
+      "retrieved_at": "2026-11-16T09:06:07.749352+00:00",
+      "collection_status": "requires_rendered_source",
+      "error": null
+    },
+    {
+      "company": "JPM",
+      "source_url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210793628",
+      "native_url_id": "210793628",
+      "retrieved_at": "2026-11-16T09:06:08.109426+00:00",
+      "collection_status": "requires_rendered_source",
+      "error": null
+    },
+    {
+      "company": "JPM",
+      "source_url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210788130",
+      "native_url_id": "210788130",
+      "retrieved_at": "2026-11-16T09:06:08.972759+00:00",
+      "collection_status": "requires_rendered_source",
+      "error": null
+    },
+    {
+      "company": "JPM",
+      "source_url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210784217",
+      "native_url_id": "210784217",
+      "retrieved_at": "2026-11-16T09:06:09.591417+00:00",
+      "collection_status": "requires_rendered_source",
+      "error": null
+    },
+    {
+      "company": "JPM",
+      "source_url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210803316",
+      "native_url_id": "210803316",
+      "retrieved_at": "2026-11-16T09:06:10.024971+00:00",
+      "collection_status": "requires_rendered_source",
+      "error": null
+    }
+  ],
+  "summary": [
+    {
+      "period": "2026-11-16",
+      "observed_selected_postings": 5,
+      "postings_with_skill_tags": 5,
+      "postings_missing_skill_tags": 0,
+      "skill_counts": {
+        "data": 3,
+        "production": 5,
+        "python": 5,
+        "workflow": 5,
+        "evaluation": 4,
+        "retrieval": 3
+      },
+      "skill_share_among_tagged_postings": {
+        "data": 0.6,
+        "production": 1.0,
+        "python": 1.0,
+        "workflow": 1.0,
+        "evaluation": 0.8,
+        "retrieval": 0.6
+      },
+      "coverage": "Selected snapshots; external labor demand, not employee stock. Compare periods only after verifying stable employer/source coverage."
+    }
+  ],
+  "selection": "Targeted AI-role searches on official Citi and JPMorgan sites. Only readable Citi pages are in the analytical sample; no bank comparison, hiring growth or skill-population inference."
+}
