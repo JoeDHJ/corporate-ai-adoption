@@ -57,7 +57,7 @@ The vacancy example contains three actual official employer-page snapshots. It d
 
 ## Evidence and decision model
 
-Peers: Microsoft, Adobe, IBM, Accenture, Cisco, NVIDIA, Salesforce, Alphabet, JPMorgan Chase and Bank of America. The sample is purposive; fiscal-year ends differ. Every selected span has an exact excerpt, source link, PDF page or normalized HTML offset, retrieval date, rationale and automatic output. Full copyrighted documents stay local outside Git.
+Peers: Microsoft, Adobe, IBM, Accenture, Cisco, NVIDIA, Salesforce, Alphabet, JPMorgan Chase and Bank of America. The sample is purposive; fiscal-year ends differ. Every selected span has an exact excerpt, source link, PDF page or normalized HTML offset, retrieval date, rationale and automatic output. Complete parsed report text stays local outside Git.
 
 The optimizer enumerates integer candidate choices and minimizes discounted incremental cost subject to expected coverage by skill, readiness, route capacity and an upfront cash cap. Recurring costs apply to all candidates from month one; contribution starts after readiness for expected successes. NPV discounts monthly flows at an 8% annual effective rate. Common existing payroll is excluded. Internal costs, attainment and value are fictional and exposed; expected capability is not guaranteed headcount.
 

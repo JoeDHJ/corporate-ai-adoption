@@ -15,7 +15,7 @@ The implementation commit `bec99c6` passed all four CI jobs (Ubuntu/Windows, Pyt
 
 Two independent read-only reviewers closed all findings in targeted re-review. All sixty evidence spans were matched to the twenty local parsed reports. Seven complete native-resolution screenshots cover five desktop modules and two mobile views. Browser workflows and the download-inspection limit are documented in [review-log.md](review-log.md).
 
-Release files comprise a wheel, source distribution, self-contained dashboard HTML and portfolio.v1 JSON. The wheel has no runtime dependency and includes all public case inputs, dashboard assets, schemas and third-party data rights notice. The source distribution includes reproduction scripts, tests, example input and management deliverables. Full issuer reports remain local and excluded.
+Release files comprise a wheel, source distribution, self-contained dashboard HTML and portfolio.v1 JSON. The wheel has no runtime dependency and includes all public case inputs, dashboard assets, schemas and third-party data rights notice. The source distribution includes reproduction scripts, tests, example input and management deliverables. Complete parsed issuer text remains local and excluded.
 
 ## Analytical scope
 
