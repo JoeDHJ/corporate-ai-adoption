@@ -27,4 +27,4 @@ Validation: arithmetic and malformed-input tests; built-wheel clean installation
 
 ## Publication
 
-The reviewed implementation is ready for the codex/ feature-branch PR, GitHub CI matrix and v1.0.0 release. Remote publication results are recorded in the release and Actions pages after completion.
+The implementation was committed on `codex/flagship-v1` and submitted as [PR #1](https://github.com/JoeDHJ/corporate-ai-adoption/pull/1). All four Windows/Linux and Python 3.11/3.13 CI jobs passed in [run 43826493554](https://github.com/JoeDHJ/corporate-ai-adoption/actions/runs/43826493554), including clean-wheel installation. Delivery endpoints and validation evidence are in [release-record.md](release-record.md).
