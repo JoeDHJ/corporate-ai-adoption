@@ -17,3 +17,11 @@ Scenario outputs include the full input dimensions, integer route counts, expect
 Backward-incompatible field or unit changes require a new schema version. No silent sibling-source replacement or circular service dependency is permitted.
 
 Four machine-readable JSON Schemas ship in corporate_ai/schemas: scenario, vacancy input, portfolio.v1 and scenario-output. Print one with `corporate-ai schema scenario`. Standard JSON Schema validation checks shape and field types; runtime checks additionally enforce cross-field timing, distinct skill IDs, source metadata and optimization constraints.
+
+## Additive v2 extensions
+
+The portfolio.v1 envelope retains all v1 fields and adds bank_case, bank_vacancies, vacancy_coverage, reliability, workflow_inputs, workflow and research_benchmark. Existing status/units conventions apply. bank_case contains 11 source records, coverage failures, reviewed statements, all candidate locations, independent-axis diagnostics and grouped text diagnostics. The bank vacancy taxonomy is corporate-ai-capabilities 2.0; do not pool it with legacy role tags. US in canonical company IDs denotes SEC registry jurisdiction, not incorporation nationality.
+
+Workflow case files contain scenario and workflow objects plus optional results. Imports recalculate rather than trusting supplied results. Both objects must use the same currency and price year; browser cases are USD 2026. Values are workload-based and counted once; legacy per-capability benefit fields are excluded from staffing outputs in this context. The allocated staffing policy class and discrete scale choices define the optimum's scope. Snapshot consumers need no live service.
+
+V2 also ships the workflow-case JSON Schema (`corporate-ai schema workflow-case`). Runtime validation additionally checks matching task IDs, units, dates and workload-derived constraints.

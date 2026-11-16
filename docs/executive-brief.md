@@ -1,16 +1,14 @@
-# AI adoption evidence and the workforce investment decision
-Haojian Dui · Public research and consulting scenario · 16 November 2026
+# An AI rollout needs a workforce decision
+Haojian Dui · 16 November 2026 · v2.0.0 · Public evidence and explicit scenarios
 
-Public peer disclosures help identify credible AI use cases and implementation stages. They cannot supply a firm's internal skill inventory, training success rate or operating return.
+Bank disclosures identify operating use cases. A workforce investment additionally requires task requirements, eligible people, a reliability constraint and an incremental-value mechanism.
 
-The evidence case covers ten US-listed technology and banking companies in FY2023 and FY2024, with three selected spans from each report. Of the 60 reviewed spans, 23 describe deployment, five pilots, eight plans, eleven people or innovation investment, eight promotional statements and five risks. Deployment includes customer-facing product releases. Eight company-periods have selected internal operating-use evidence. The remaining periods are unknown on that criterion because the excerpt selection is not exhaustive.
+Eleven complete annual reports cover JPMorgan Chase, Bank of America, Citi and Wells Fargo across FY2023–FY2025, with BAC FY2025 missing after collection failure. Thirty reviewed spans sit inside 288 candidate locations. JPMorgan FY2024 LLM Suite rollout reach and FY2025 CIB active users describe different populations; they cannot establish a decline. Wells Fargo's repeated use-plus-risk disclosure is not a new annual deployment event.
 
-Bank of America describes customer-service AI and a coding pilot in FY2023. JPMorgan's FY2024 report describes an LLM Suite rollout to more than 200,000 colleagues. Microsoft's FY2023 report describes its own support agents using Copilot. These are different organizational scopes and maturity stages. None establishes a causal labor effect.
+The original fixed-demand staffing mix meets expected requirements but has only **39.3% joint attainment** under additional independent Bernoulli assumptions. A conservative 90% allocated policy yields **92.9%**, at **$4,238,221** personnel PV cost versus **$2,229,643**. These probabilities are conditional calculations, not measured employee success rates.
 
-In the linked fictional 200-person bank unit, 26 capability equivalents are needed within six months. The minimum-cost mix starts **24 training candidates, seven redeployments and one external hire**. Expected attainment is fractional; these counts are candidate decisions, not guaranteed successful employees. The mix requires **$275,000 upfront** and **$2,229,643 discounted incremental cost** over 36 months. Its **$9,142,257 NPV** depends on assumed annual gross contribution of $180,000 per successful capability. Break-even contribution is about **$35,292 per year** under the same mix and timing.
+The completed workflow case derives separate skill demands from task minutes, reserves integration cash, and jointly compares cost, readiness and reliability. Of no action and 25%, 50%, 100% scale, **50%** wins under base assumptions: **23 training candidates and two redeployments**, **$1,907,704 modeled NPV**, and **20.9% selected-plan break-even realization**. Full scale is cash-constrained. At zero realized value, no action wins. A changed value can change the optimal mix, so the selected-plan threshold is not a global switching threshold.
 
-At 65% training attainment, the plan requires three hires and nine redeployments and costs $3.31 million in present value. At 50%, the $400,000 upfront cash cap makes demand infeasible. At $30,000 annual contribution, the base mix has negative NPV of about $334,327. Attainment and value measurement are therefore the first decisions to resolve.
-
-Use the [90/180/365-day gates](roadmap.md) to validate workflow quality, capability attainment and incremental operating value before scaling. Keep national occupation projections, current vacancies and employee stocks in their own units.
+Use an actual analyst pilot to measure task/revision time, source correctness, attainment and capacity monetization before investment. Six executed software tasks do not measure human productivity. Five readable Citi vacancies establish selected role requirements, not hiring growth.
 
 [Interactive case](https://joedhj.github.io/corporate-ai-adoption/) · [Full report](executive-report.md) · [Methods](methodology.md)

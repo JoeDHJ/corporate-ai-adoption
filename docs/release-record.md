@@ -20,3 +20,11 @@ Release files comprise a wheel, source distribution, self-contained dashboard HT
 ## Analytical scope
 
 The corpus is a purposive retrospective with three selected statements per report. Coding uses one AI assistant's rubric review; there are no independent human labels or held-out validation. Microsoft functional stocks, BLS national projections and current employer descriptions have separate units and windows. A stable historical firm-vacancy panel is unavailable. Internal workforce costs, capacities, success rates and value are fictional scenario assumptions. No paid client, causal hiring effect or guaranteed staffing outcome is claimed.
+
+## Version 2.0.0
+
+The v2 source adds a coherent bank case through FY2025, independent disclosure axes with visible errors, real selected vacancy snapshots, exact staffing reliability, joint workload-level NPV decisions, executable task presets, local case import/export, and eight complete presentation views. Existing v1 capabilities remain.
+
+[Live product](https://joedhj.github.io/corporate-ai-adoption/) · [v2 release assets](https://github.com/JoeDHJ/corporate-ai-adoption/releases/tag/v2.0.0) · [CI and Pages history](https://github.com/JoeDHJ/corporate-ai-adoption/actions) · [Review record](review-log.md). The release contains an installable wheel, source distribution, standalone application and presentation, and public analytical JSON. No new Word or PDF is generated.
+
+Independent evidence and technical reviewers closed their material findings. Local checks include a 54-check release suite (the 53-check full pass plus the added provenance regression), both solver parity suites, actual task ranking consistency, isolated wheel installation and JSON roundtrip, plus desktop/mobile UI and native-size screenshots. Native automated file upload remains unverified because the browser extension does not grant file access; no permission was changed. Human reference labels and analyst productivity measurements remain future empirical inputs, not claimed outcomes.

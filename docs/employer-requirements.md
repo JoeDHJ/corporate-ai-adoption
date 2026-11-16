@@ -10,3 +10,7 @@ Official employer pages read on 16 November 2026. These are selected role descri
 All three descriptions require additional experience and qualifications beyond these artifacts. The matrix demonstrates relevant project outputs; it does not certify the author meets every hiring criterion.
 
 The machine-readable snapshot is [jobs.json](../src/corporate_ai/data/jobs.json), with native job IDs, source URLs, retrieval date and versioned skill tags. A permitted CSV example uses those same three observed pages.
+
+## v2 evidence added
+
+The bank case now spans eleven complete annual reports through FY2025, preserves use/risk and actor/stage axes, and publishes axis failures. Grouped TF-IDF diagnostics and a feature-deduplicated future-language check complement the earlier rules. Five actual Citi vacancies are a separate company-demand sample. Exact staffing reliability and workload-level NPV optimization replace a mean-only decision narrative. The app includes complete task presets, editable/importable cases, matching briefs and eight rendered presentation exhibits. See [career positioning](career-positioning.md) for accurate demonstrations and boundaries. The earlier test counts above describe the earlier release; current checks are in the review record.

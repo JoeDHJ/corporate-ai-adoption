@@ -1,15 +1,14 @@
-# Management presentation outline
-Haojian Dui · Public research case and workforce consulting scenario
+# Eight-exhibit presentation — v2
 
-| Slide | Decision message | Exhibit / discussion |
-| --- | --- | --- |
-| 1. Decision | Define workflows and capabilities before choosing staffing routes. | Observations, coding judgments and management assumptions. |
-| 2. Peer evidence | Internal use, customer products, pilots and plans differ. | BAC-2023-E2; JPM-2024-E3; MSFT-2024-E1. |
-| 3. Measurement | Context helps; review remains necessary. | 23/60 baseline versus 46/60 context agreement; assistant labels, no independent human validation. |
-| 4. People and demand | Stocks, openings and skill requirements have different units. | Microsoft shares, BLS projections, selected official JDs. |
-| 5. Requirements | Need 8 evaluation, 12 workflow and 6 data capabilities. | Route capacity, attainment, readiness and costs are assumptions. |
-| 6. Fundable mix | Train 24, redeploy 7, hire 1. | $275,000 upfront; $2.23m PV incremental cost; coverage by skill. |
-| 7. Decision sensitivity | Attainment and operating value govern feasibility and return. | 50% attainment infeasible; $30,000 annual value yields negative NPV. |
-| 8. Execute in gates | Release spending as quality, attainment and value become observable. | 90/180/365-day owners and stop/revise/scale decisions. |
+Use the app's Presentation tab or generated presentation.html. Each is a complete rendered view.
 
-Speaker prompt: replace skill inventory, route capacities, costs and value with approved operating records. Do not infer internal inputs from a peer product announcement.
+1. Which operating evidence warrants workforce investment?
+2. Preserve actor, stage and use-plus-risk meaning.
+3. Eleven bank reports, 30 reviewed spans, 288 candidate locations; gaps visible.
+4. Mean-coverage joint attainment 39.3%; allocated 90% policy 92.9%.
+5. No action and three scales; base 50% NPV $1,907,704; full scale cash-constrained.
+6. Selected-plan realization threshold 20.9%; recompute when assumptions change.
+7. Process, learning, controls and finance owners verify measured gates.
+8. Source measurement, methods, complete app and independent reproduction.
+
+Figures are reusable with their scenario notes. No observed savings or client engagement is claimed.

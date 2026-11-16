@@ -24,6 +24,7 @@ jobs:
       - run: python -m pip install ".[dev]"
       - run: python -m pytest -q
       - run: node tests/strategy-parity.cjs
+      - run: node tests/v2-parity.cjs
       - run: python -m build
       - name: Install wheel in a clean environment
         shell: bash

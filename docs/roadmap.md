@@ -1,13 +1,12 @@
-# 90/180/365-day workforce implementation roadmap
-Consulting scenario for a hypothetical bank unit. Owners are proposed roles, not assigned real employees.
+# Decision gates with accountable evidence
 
-| Horizon | Work and accountable owner | Evidence | Decision gate |
+| Gate | Owner | Required evidence | Decision |
 | --- | --- | --- | --- |
-| 0–30 days | Operations lead defines two workflows; data owner validates access; HR measures baseline skills. | Task volumes, handling time, quality baseline, control requirements and disjoint eligible pools. | Select workflows with measurable value and an escalation path. |
-| 31–90 days | Learning lead pilots training; model-risk lead evaluates tasks; finance verifies cost. | Assessment results, task quality, material errors, usable time and incremental costs. | Refit attainment and value assumptions. Require positive NPV in a documented downside case before scaling. |
-| 91–180 days | Mobility lead negotiates releases and backfill; recruiting fills measured gaps. | Capability attainment by family, readiness dates, backfill cost, fill time and cash spend. | Meet six-month requirements by skill, or change demand/deadline/budget explicitly. |
-| 181–365 days | Operations and finance review sustained value; governance checks incidents. | Repeated quality, contribution, utilization, attrition and escalation completion. | Expand workflows with maintained quality and positive incremental value; reduce or pause failures. |
+| First 30 days | Process/analyst lead | Actual baseline time, quality, exceptions and data access | Confirm volume and specialist task minutes |
+| Days 30–60 | Learning/workforce | Assessed eligible pools, actual attainment and transfer | Replace capacity/success assumptions |
+| Days 60–90 | Controls | Independent source quality and failure severity | Permit or stop workflow use |
+| Day 90 | Finance/process | Actual integration/platform costs and capacity monetization | Recompute scale and no action |
+| Day 180 | Workforce/finance | Attrition, correlated failure, sustained quality/value | Scale, redesign or defer |
+| Day 365 | Executive owner | Comparable outcomes and refreshed labor signals | Renew business case and ownership |
 
-Expected attainment is not guaranteed headcount. Reassess eligibility and overlap before using the plan. Check recurring and opportunity costs against finance records.
-
-Scorecard: task quality, material error rate, attained capability, readiness, cash spend, incremental contribution and completed escalations. Set thresholds from actual business requirements before an operating pilot; this portfolio does not invent client thresholds.
+The software, public case and decision flow are delivered. Independent human coding, actual analyst experiments and client outcomes require real participation; synthetic records cannot complete them. A disclosure-count regression would not resolve these gaps.

@@ -1,0 +1,779 @@
+{
+  "source_id": "SCENARIO-WORKFLOW-02",
+  "source_url": null,
+  "retrieved_at": "2026-11-16",
+  "source_vintage": "Workflow scenario v2",
+  "geography": "Hypothetical US banking research operations",
+  "unit_of_observation": "public-document research workflow",
+  "period": "36 months from decision",
+  "currency": "USD",
+  "price_year": 2026,
+  "schema_version": "portfolio.v1",
+  "status": "scenario",
+  "version": "2.0.0",
+  "scenario": {
+    "schema_version": "portfolio.v1",
+    "source_id": "SCENARIO-BANK-01",
+    "source_url": null,
+    "retrieved_at": "2026-11-16",
+    "source_vintage": "Scenario v1",
+    "geography": "US hypothetical business unit",
+    "unit_of_observation": "incremental productive capability equivalent",
+    "period": "36 months from decision",
+    "currency": "USD",
+    "price_year": 2026,
+    "status": "scenario",
+    "name": "Bank operations AI capability build",
+    "horizon_months": 36,
+    "deadline_months": 6,
+    "annual_discount_rate": 0.08,
+    "annual_value_per_capability": 180000,
+    "upfront_budget": 400000,
+    "skills": [
+      {
+        "skill_id": "evaluation",
+        "label": "AI evaluation and controls",
+        "taxonomy": "corporate-ai-capabilities",
+        "taxonomy_version": "1.0",
+        "demand": 8,
+        "routes": {
+          "train": {
+            "capacity": 8,
+            "success_rate": 0.8,
+            "ready_month": 4,
+            "upfront_cost": 9000,
+            "annual_recurring_cost": 12000
+          },
+          "redeploy": {
+            "capacity": 3,
+            "success_rate": 0.9,
+            "ready_month": 2,
+            "upfront_cost": 5000,
+            "annual_recurring_cost": 42000
+          },
+          "hire": {
+            "capacity": 12,
+            "success_rate": 1.0,
+            "ready_month": 3,
+            "upfront_cost": 24000,
+            "annual_recurring_cost": 150000
+          }
+        }
+      },
+      {
+        "skill_id": "workflow",
+        "label": "Workflow and domain integration",
+        "taxonomy": "corporate-ai-capabilities",
+        "taxonomy_version": "1.0",
+        "demand": 12,
+        "routes": {
+          "train": {
+            "capacity": 12,
+            "success_rate": 0.8,
+            "ready_month": 4,
+            "upfront_cost": 9000,
+            "annual_recurring_cost": 12000
+          },
+          "redeploy": {
+            "capacity": 5,
+            "success_rate": 0.9,
+            "ready_month": 2,
+            "upfront_cost": 5000,
+            "annual_recurring_cost": 42000
+          },
+          "hire": {
+            "capacity": 16,
+            "success_rate": 1.0,
+            "ready_month": 3,
+            "upfront_cost": 24000,
+            "annual_recurring_cost": 150000
+          }
+        }
+      },
+      {
+        "skill_id": "data",
+        "label": "Data engineering and governance",
+        "taxonomy": "corporate-ai-capabilities",
+        "taxonomy_version": "1.0",
+        "demand": 6,
+        "routes": {
+          "train": {
+            "capacity": 4,
+            "success_rate": 0.8,
+            "ready_month": 4,
+            "upfront_cost": 9000,
+            "annual_recurring_cost": 12000
+          },
+          "redeploy": {
+            "capacity": 2,
+            "success_rate": 0.9,
+            "ready_month": 2,
+            "upfront_cost": 5000,
+            "annual_recurring_cost": 42000
+          },
+          "hire": {
+            "capacity": 10,
+            "success_rate": 1.0,
+            "ready_month": 3,
+            "upfront_cost": 24000,
+            "annual_recurring_cost": 150000
+          }
+        }
+      }
+    ],
+    "assumptions": [
+      "Fictional 200-person bank operations unit; not a client or a staffing estimate for JPMorgan/BAC.",
+      "Demand represents distinct, non-overlapping capability assignments. Candidate pools are disjoint across skills and routes.",
+      "Upfront training cost is $5,000 instruction plus 80 learning hours at $50 per hour; redeployment $5,000; recruiting and onboarding $24,000.",
+      "Annual recurring costs are incremental pay/license uplift ($12,000 training), backfill/opportunity cost ($42,000 redeployment), and fully loaded new-hire cost ($150,000). Existing base payroll is common to the decision and excluded.",
+      "Recurring costs apply to every candidate from month 1, including unsuccessful candidates. Benefits accrue only to expected successful capability after readiness. No salvage value, tax or inflation.",
+      "Success rates represent expected attainment, not guaranteed headcount. No attrition after attainment; no claim about displacement or headcount reduction.",
+      "Annual value is modeled gross incremental operating contribution per successful capability; it is neither estimated from filings nor a BLS wage."
+    ]
+  },
+  "workflow": {
+    "source_id": "SCENARIO-WORKFLOW-02",
+    "source_url": null,
+    "retrieved_at": "2026-11-16",
+    "source_vintage": "Workflow scenario v2",
+    "schema_version": "portfolio.v1",
+    "status": "scenario",
+    "geography": "Hypothetical US banking research operations",
+    "unit_of_observation": "public-document research workflow",
+    "period": "36 months from decision",
+    "currency": "USD",
+    "price_year": 2026,
+    "name": "Public-document research and evidence checking",
+    "monthly_volume": 60000,
+    "baseline_minutes": 20,
+    "assisted_minutes": 8,
+    "rework_probability": 0.1,
+    "rework_minutes": 8,
+    "productive_hours_month": 100,
+    "hour_value": 60,
+    "realization_rate": 0.5,
+    "integration_cost": 60000,
+    "annual_platform_cost": 120000,
+    "launch_month": 6,
+    "confidence": 0.9,
+    "tasks": [
+      {
+        "skill_id": "evaluation",
+        "label": "Check sources and quality",
+        "minutes_per_item": 0.8
+      },
+      {
+        "skill_id": "workflow",
+        "label": "Integrate findings into research brief",
+        "minutes_per_item": 1.2
+      },
+      {
+        "skill_id": "data",
+        "label": "Resolve data and provenance exceptions",
+        "minutes_per_item": 0.6
+      }
+    ]
+  },
+  "results": {
+    "inputs": {
+      "source_id": "SCENARIO-WORKFLOW-02",
+      "source_url": null,
+      "retrieved_at": "2026-11-16",
+      "source_vintage": "Workflow scenario v2",
+      "schema_version": "portfolio.v1",
+      "status": "scenario",
+      "geography": "Hypothetical US banking research operations",
+      "unit_of_observation": "public-document research workflow",
+      "period": "36 months from decision",
+      "currency": "USD",
+      "price_year": 2026,
+      "name": "Public-document research and evidence checking",
+      "monthly_volume": 60000,
+      "baseline_minutes": 20,
+      "assisted_minutes": 8,
+      "rework_probability": 0.1,
+      "rework_minutes": 8,
+      "productive_hours_month": 100,
+      "hour_value": 60,
+      "realization_rate": 0.5,
+      "integration_cost": 60000,
+      "annual_platform_cost": 120000,
+      "launch_month": 6,
+      "confidence": 0.9,
+      "tasks": [
+        {
+          "skill_id": "evaluation",
+          "label": "Check sources and quality",
+          "minutes_per_item": 0.8
+        },
+        {
+          "skill_id": "workflow",
+          "label": "Integrate findings into research brief",
+          "minutes_per_item": 1.2
+        },
+        {
+          "skill_id": "data",
+          "label": "Resolve data and provenance exceptions",
+          "minutes_per_item": 0.6
+        }
+      ]
+    },
+    "options": [
+      {
+        "scale": 0.25,
+        "monthly_volume": 15000.0,
+        "staffing_inputs": {
+          "schema_version": "portfolio.v1",
+          "source_id": "SCENARIO-BANK-01",
+          "source_url": null,
+          "retrieved_at": "2026-11-16",
+          "source_vintage": "Scenario v1",
+          "geography": "US hypothetical business unit",
+          "unit_of_observation": "incremental productive capability equivalent",
+          "period": "36 months from decision",
+          "currency": "USD",
+          "price_year": 2026,
+          "status": "scenario",
+          "name": "Bank operations AI capability build",
+          "horizon_months": 36,
+          "deadline_months": 6,
+          "annual_discount_rate": 0.08,
+          "annual_value_per_capability": 180000,
+          "upfront_budget": 385000.0,
+          "skills": [
+            {
+              "skill_id": "evaluation",
+              "label": "AI evaluation and controls",
+              "taxonomy": "corporate-ai-capabilities",
+              "taxonomy_version": "1.0",
+              "demand": 2,
+              "routes": {
+                "train": {
+                  "capacity": 8,
+                  "success_rate": 0.8,
+                  "ready_month": 4,
+                  "upfront_cost": 9000,
+                  "annual_recurring_cost": 12000
+                },
+                "redeploy": {
+                  "capacity": 3,
+                  "success_rate": 0.9,
+                  "ready_month": 2,
+                  "upfront_cost": 5000,
+                  "annual_recurring_cost": 42000
+                },
+                "hire": {
+                  "capacity": 12,
+                  "success_rate": 1.0,
+                  "ready_month": 3,
+                  "upfront_cost": 24000,
+                  "annual_recurring_cost": 150000
+                }
+              }
+            },
+            {
+              "skill_id": "workflow",
+              "label": "Workflow and domain integration",
+              "taxonomy": "corporate-ai-capabilities",
+              "taxonomy_version": "1.0",
+              "demand": 3,
+              "routes": {
+                "train": {
+                  "capacity": 12,
+                  "success_rate": 0.8,
+                  "ready_month": 4,
+                  "upfront_cost": 9000,
+                  "annual_recurring_cost": 12000
+                },
+                "redeploy": {
+                  "capacity": 5,
+                  "success_rate": 0.9,
+                  "ready_month": 2,
+                  "upfront_cost": 5000,
+                  "annual_recurring_cost": 42000
+                },
+                "hire": {
+                  "capacity": 16,
+                  "success_rate": 1.0,
+                  "ready_month": 3,
+                  "upfront_cost": 24000,
+                  "annual_recurring_cost": 150000
+                }
+              }
+            },
+            {
+              "skill_id": "data",
+              "label": "Data engineering and governance",
+              "taxonomy": "corporate-ai-capabilities",
+              "taxonomy_version": "1.0",
+              "demand": 2,
+              "routes": {
+                "train": {
+                  "capacity": 4,
+                  "success_rate": 0.8,
+                  "ready_month": 4,
+                  "upfront_cost": 9000,
+                  "annual_recurring_cost": 12000
+                },
+                "redeploy": {
+                  "capacity": 2,
+                  "success_rate": 0.9,
+                  "ready_month": 2,
+                  "upfront_cost": 5000,
+                  "annual_recurring_cost": 42000
+                },
+                "hire": {
+                  "capacity": 10,
+                  "success_rate": 1.0,
+                  "ready_month": 3,
+                  "upfront_cost": 24000,
+                  "annual_recurring_cost": 150000
+                }
+              }
+            }
+          ],
+          "assumptions": [
+            "Fictional 200-person bank operations unit; not a client or a staffing estimate for JPMorgan/BAC.",
+            "Demand represents distinct, non-overlapping capability assignments. Candidate pools are disjoint across skills and routes.",
+            "Upfront training cost is $5,000 instruction plus 80 learning hours at $50 per hour; redeployment $5,000; recruiting and onboarding $24,000.",
+            "Annual recurring costs are incremental pay/license uplift ($12,000 training), backfill/opportunity cost ($42,000 redeployment), and fully loaded new-hire cost ($150,000). Existing base payroll is common to the decision and excluded.",
+            "Recurring costs apply to every candidate from month 1, including unsuccessful candidates. Benefits accrue only to expected successful capability after readiness. No salvage value, tax or inflation.",
+            "Success rates represent expected attainment, not guaranteed headcount. No attrition after attainment; no claim about displacement or headcount reduction.",
+            "Annual value is modeled gross incremental operating contribution per successful capability; it is neither estimated from filings nor a BLS wage."
+          ]
+        },
+        "staffing": {
+          "feasible": true,
+          "status": "scenario",
+          "confidence_target": 0.9,
+          "per_skill_probability_floor": 0.9666666666666667,
+          "objective": "Maximum workflow NPV within equal per-skill failure-budget allocation; joint comparison of cost, readiness and reliability",
+          "upfront_cost": 126000.0,
+          "pv_cost": 574606.6394420516,
+          "skills": [
+            {
+              "skill_id": "evaluation",
+              "demand": 2,
+              "counts": {
+                "train": 4,
+                "redeploy": 0,
+                "hire": 0
+              },
+              "expected_ready": 3.2,
+              "upfront_cost": 36000.0,
+              "pv_cost": 164173.3255548719,
+              "probability": 0.9728000000000001,
+              "launch": 6
+            },
+            {
+              "skill_id": "workflow",
+              "demand": 3,
+              "counts": {
+                "train": 6,
+                "redeploy": 0,
+                "hire": 0
+              },
+              "expected_ready": 4.8,
+              "upfront_cost": 54000.0,
+              "pv_cost": 246259.98833230787,
+              "probability": 0.98304,
+              "launch": 6
+            },
+            {
+              "skill_id": "data",
+              "demand": 2,
+              "counts": {
+                "train": 4,
+                "redeploy": 0,
+                "hire": 0
+              },
+              "expected_ready": 3.2,
+              "upfront_cost": 36000.0,
+              "pv_cost": 164173.3255548719,
+              "probability": 0.9728000000000001,
+              "launch": 6
+            }
+          ],
+          "route_counts": {
+            "train": 14,
+            "redeploy": 0,
+            "hire": 0
+          },
+          "skill_risks": [
+            {
+              "probability_meeting_demand": 0.9728000000000001,
+              "expected_shortfall": 0.028799999999999982
+            },
+            {
+              "probability_meeting_demand": 0.98304,
+              "expected_shortfall": 0.018623999999999984
+            },
+            {
+              "probability_meeting_demand": 0.9728000000000001,
+              "expected_shortfall": 0.028799999999999982
+            }
+          ],
+          "joint_probability_independent": 0.9302899163136003,
+          "joint_probability_lower_bound": 0.9286400000000002,
+          "expected_total_shortfall": 0.07622399999999994
+        },
+        "human_minutes_after": 11.4,
+        "monthly_capacity_hours": 2150.0,
+        "annual_capacity_fte": 21.5,
+        "launch_month": 6,
+        "pv_total_cost": 669714.9679138466,
+        "pv_realized_value": 1570666.4975683514,
+        "npv": 900951.5296545048,
+        "break_even_realization": 0.21319451613397078,
+        "upfront_with_integration": 141000.0
+      },
+      {
+        "scale": 0.5,
+        "monthly_volume": 30000.0,
+        "staffing_inputs": {
+          "schema_version": "portfolio.v1",
+          "source_id": "SCENARIO-BANK-01",
+          "source_url": null,
+          "retrieved_at": "2026-11-16",
+          "source_vintage": "Scenario v1",
+          "geography": "US hypothetical business unit",
+          "unit_of_observation": "incremental productive capability equivalent",
+          "period": "36 months from decision",
+          "currency": "USD",
+          "price_year": 2026,
+          "status": "scenario",
+          "name": "Bank operations AI capability build",
+          "horizon_months": 36,
+          "deadline_months": 6,
+          "annual_discount_rate": 0.08,
+          "annual_value_per_capability": 180000,
+          "upfront_budget": 370000.0,
+          "skills": [
+            {
+              "skill_id": "evaluation",
+              "label": "AI evaluation and controls",
+              "taxonomy": "corporate-ai-capabilities",
+              "taxonomy_version": "1.0",
+              "demand": 4,
+              "routes": {
+                "train": {
+                  "capacity": 8,
+                  "success_rate": 0.8,
+                  "ready_month": 4,
+                  "upfront_cost": 9000,
+                  "annual_recurring_cost": 12000
+                },
+                "redeploy": {
+                  "capacity": 3,
+                  "success_rate": 0.9,
+                  "ready_month": 2,
+                  "upfront_cost": 5000,
+                  "annual_recurring_cost": 42000
+                },
+                "hire": {
+                  "capacity": 12,
+                  "success_rate": 1.0,
+                  "ready_month": 3,
+                  "upfront_cost": 24000,
+                  "annual_recurring_cost": 150000
+                }
+              }
+            },
+            {
+              "skill_id": "workflow",
+              "label": "Workflow and domain integration",
+              "taxonomy": "corporate-ai-capabilities",
+              "taxonomy_version": "1.0",
+              "demand": 6,
+              "routes": {
+                "train": {
+                  "capacity": 12,
+                  "success_rate": 0.8,
+                  "ready_month": 4,
+                  "upfront_cost": 9000,
+                  "annual_recurring_cost": 12000
+                },
+                "redeploy": {
+                  "capacity": 5,
+                  "success_rate": 0.9,
+                  "ready_month": 2,
+                  "upfront_cost": 5000,
+                  "annual_recurring_cost": 42000
+                },
+                "hire": {
+                  "capacity": 16,
+                  "success_rate": 1.0,
+                  "ready_month": 3,
+                  "upfront_cost": 24000,
+                  "annual_recurring_cost": 150000
+                }
+              }
+            },
+            {
+              "skill_id": "data",
+              "label": "Data engineering and governance",
+              "taxonomy": "corporate-ai-capabilities",
+              "taxonomy_version": "1.0",
+              "demand": 3,
+              "routes": {
+                "train": {
+                  "capacity": 4,
+                  "success_rate": 0.8,
+                  "ready_month": 4,
+                  "upfront_cost": 9000,
+                  "annual_recurring_cost": 12000
+                },
+                "redeploy": {
+                  "capacity": 2,
+                  "success_rate": 0.9,
+                  "ready_month": 2,
+                  "upfront_cost": 5000,
+                  "annual_recurring_cost": 42000
+                },
+                "hire": {
+                  "capacity": 10,
+                  "success_rate": 1.0,
+                  "ready_month": 3,
+                  "upfront_cost": 24000,
+                  "annual_recurring_cost": 150000
+                }
+              }
+            }
+          ],
+          "assumptions": [
+            "Fictional 200-person bank operations unit; not a client or a staffing estimate for JPMorgan/BAC.",
+            "Demand represents distinct, non-overlapping capability assignments. Candidate pools are disjoint across skills and routes.",
+            "Upfront training cost is $5,000 instruction plus 80 learning hours at $50 per hour; redeployment $5,000; recruiting and onboarding $24,000.",
+            "Annual recurring costs are incremental pay/license uplift ($12,000 training), backfill/opportunity cost ($42,000 redeployment), and fully loaded new-hire cost ($150,000). Existing base payroll is common to the decision and excluded.",
+            "Recurring costs apply to every candidate from month 1, including unsuccessful candidates. Benefits accrue only to expected successful capability after readiness. No salvage value, tax or inflation.",
+            "Success rates represent expected attainment, not guaranteed headcount. No attrition after attainment; no claim about displacement or headcount reduction.",
+            "Annual value is modeled gross incremental operating contribution per successful capability; it is neither estimated from filings nor a BLS wage."
+          ]
+        },
+        "staffing": {
+          "feasible": true,
+          "status": "scenario",
+          "confidence_target": 0.9,
+          "per_skill_probability_floor": 0.9666666666666667,
+          "objective": "Maximum workflow NPV within equal per-skill failure-budget allocation; joint comparison of cost, readiness and reliability",
+          "upfront_cost": 217000.0,
+          "pv_cost": 1178299.9416615393,
+          "skills": [
+            {
+              "skill_id": "evaluation",
+              "demand": 4,
+              "counts": {
+                "train": 8,
+                "redeploy": 0,
+                "hire": 0
+              },
+              "expected_ready": 6.4,
+              "upfront_cost": 72000.0,
+              "pv_cost": 328346.6511097438,
+              "probability": 0.9895936,
+              "launch": 6
+            },
+            {
+              "skill_id": "workflow",
+              "demand": 6,
+              "counts": {
+                "train": 11,
+                "redeploy": 0,
+                "hire": 0
+              },
+              "expected_ready": 8.8,
+              "upfront_cost": 99000.0,
+              "pv_cost": 451476.64527589775,
+              "probability": 0.9883457945599999,
+              "launch": 6
+            },
+            {
+              "skill_id": "data",
+              "demand": 3,
+              "counts": {
+                "train": 4,
+                "redeploy": 2,
+                "hire": 0
+              },
+              "expected_ready": 5.0,
+              "upfront_cost": 46000.0,
+              "pv_cost": 398476.64527589775,
+              "probability": 0.992,
+              "launch": 6
+            }
+          ],
+          "route_counts": {
+            "train": 23,
+            "redeploy": 2,
+            "hire": 0
+          },
+          "skill_risks": [
+            {
+              "probability_meeting_demand": 0.9895936,
+              "expected_shortfall": 0.011724799999999988
+            },
+            {
+              "probability_meeting_demand": 0.9883457945599999,
+              "expected_shortfall": 0.013874667519999984
+            },
+            {
+              "probability_meeting_demand": 0.992,
+              "expected_shortfall": 0.008575999999999992
+            }
+          ],
+          "joint_probability_independent": 0.9702361875004228,
+          "joint_probability_lower_bound": 0.9699393945599999,
+          "expected_total_shortfall": 0.03417546751999996
+        },
+        "human_minutes_after": 11.4,
+        "monthly_capacity_hours": 4300.0,
+        "annual_capacity_fte": 43.0,
+        "launch_month": 6,
+        "pv_total_cost": 1368516.5986051292,
+        "pv_realized_value": 3276220.5581547935,
+        "npv": 1907703.9595496643,
+        "break_even_realization": 0.2088559934096583,
+        "upfront_with_integration": 247000.0
+      },
+      {
+        "scale": 1.0,
+        "monthly_volume": 60000.0,
+        "staffing_inputs": {
+          "schema_version": "portfolio.v1",
+          "source_id": "SCENARIO-BANK-01",
+          "source_url": null,
+          "retrieved_at": "2026-11-16",
+          "source_vintage": "Scenario v1",
+          "geography": "US hypothetical business unit",
+          "unit_of_observation": "incremental productive capability equivalent",
+          "period": "36 months from decision",
+          "currency": "USD",
+          "price_year": 2026,
+          "status": "scenario",
+          "name": "Bank operations AI capability build",
+          "horizon_months": 36,
+          "deadline_months": 6,
+          "annual_discount_rate": 0.08,
+          "annual_value_per_capability": 180000,
+          "upfront_budget": 340000.0,
+          "skills": [
+            {
+              "skill_id": "evaluation",
+              "label": "AI evaluation and controls",
+              "taxonomy": "corporate-ai-capabilities",
+              "taxonomy_version": "1.0",
+              "demand": 8,
+              "routes": {
+                "train": {
+                  "capacity": 8,
+                  "success_rate": 0.8,
+                  "ready_month": 4,
+                  "upfront_cost": 9000,
+                  "annual_recurring_cost": 12000
+                },
+                "redeploy": {
+                  "capacity": 3,
+                  "success_rate": 0.9,
+                  "ready_month": 2,
+                  "upfront_cost": 5000,
+                  "annual_recurring_cost": 42000
+                },
+                "hire": {
+                  "capacity": 12,
+                  "success_rate": 1.0,
+                  "ready_month": 3,
+                  "upfront_cost": 24000,
+                  "annual_recurring_cost": 150000
+                }
+              }
+            },
+            {
+              "skill_id": "workflow",
+              "label": "Workflow and domain integration",
+              "taxonomy": "corporate-ai-capabilities",
+              "taxonomy_version": "1.0",
+              "demand": 12,
+              "routes": {
+                "train": {
+                  "capacity": 12,
+                  "success_rate": 0.8,
+                  "ready_month": 4,
+                  "upfront_cost": 9000,
+                  "annual_recurring_cost": 12000
+                },
+                "redeploy": {
+                  "capacity": 5,
+                  "success_rate": 0.9,
+                  "ready_month": 2,
+                  "upfront_cost": 5000,
+                  "annual_recurring_cost": 42000
+                },
+                "hire": {
+                  "capacity": 16,
+                  "success_rate": 1.0,
+                  "ready_month": 3,
+                  "upfront_cost": 24000,
+                  "annual_recurring_cost": 150000
+                }
+              }
+            },
+            {
+              "skill_id": "data",
+              "label": "Data engineering and governance",
+              "taxonomy": "corporate-ai-capabilities",
+              "taxonomy_version": "1.0",
+              "demand": 6,
+              "routes": {
+                "train": {
+                  "capacity": 4,
+                  "success_rate": 0.8,
+                  "ready_month": 4,
+                  "upfront_cost": 9000,
+                  "annual_recurring_cost": 12000
+                },
+                "redeploy": {
+                  "capacity": 2,
+                  "success_rate": 0.9,
+                  "ready_month": 2,
+                  "upfront_cost": 5000,
+                  "annual_recurring_cost": 42000
+                },
+                "hire": {
+                  "capacity": 10,
+                  "success_rate": 1.0,
+                  "ready_month": 3,
+                  "upfront_cost": 24000,
+                  "annual_recurring_cost": 150000
+                }
+              }
+            }
+          ],
+          "assumptions": [
+            "Fictional 200-person bank operations unit; not a client or a staffing estimate for JPMorgan/BAC.",
+            "Demand represents distinct, non-overlapping capability assignments. Candidate pools are disjoint across skills and routes.",
+            "Upfront training cost is $5,000 instruction plus 80 learning hours at $50 per hour; redeployment $5,000; recruiting and onboarding $24,000.",
+            "Annual recurring costs are incremental pay/license uplift ($12,000 training), backfill/opportunity cost ($42,000 redeployment), and fully loaded new-hire cost ($150,000). Existing base payroll is common to the decision and excluded.",
+            "Recurring costs apply to every candidate from month 1, including unsuccessful candidates. Benefits accrue only to expected successful capability after readiness. No salvage value, tax or inflation.",
+            "Success rates represent expected attainment, not guaranteed headcount. No attrition after attainment; no claim about displacement or headcount reduction.",
+            "Annual value is modeled gross incremental operating contribution per successful capability; it is neither estimated from filings nor a BLS wage."
+          ]
+        },
+        "staffing": {
+          "feasible": false,
+          "reason": "Shared upfront budget cannot fund a reliable plan"
+        }
+      }
+    ],
+    "no_action_npv": 0,
+    "recommended_scale": 0.5,
+    "decision": "Proceed to quality-gated pilot at the selected scale",
+    "value_definition": "Released capacity valued at an assumed realization rate; not observed cash savings. All-or-nothing workflow launch conditional on all three skill demands; no value duplicated across skills.",
+    "assumptions": [
+      "Task minutes, productive hours, value, realization, costs and success are scenario inputs.",
+      "Value begins only after all selected routes are ready and launch is permitted; failed joint attainment yields no workflow value.",
+      "Staffing costs include candidate costs and redeployment/backfill; platform and integration are additional.",
+      "Do not add wage-based savings to incremental revenue when they monetize the same capacity.",
+      "Equal workload proportions and disjoint specialist pools; no attrition, tax or salvage."
+    ]
+  }
+}

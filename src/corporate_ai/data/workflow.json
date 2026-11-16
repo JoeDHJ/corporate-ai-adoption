@@ -1,0 +1,18 @@
+{
+  "source_id": "SCENARIO-WORKFLOW-02", "source_url": null,
+  "retrieved_at": "2026-11-16", "source_vintage": "Workflow scenario v2",
+  "schema_version": "portfolio.v1", "status": "scenario", "geography": "Hypothetical US banking research operations",
+  "unit_of_observation": "public-document research workflow", "period": "36 months from decision",
+  "currency": "USD", "price_year": 2026,
+  "name": "Public-document research and evidence checking",
+  "monthly_volume": 60000, "baseline_minutes": 20, "assisted_minutes": 8,
+  "rework_probability": 0.1, "rework_minutes": 8,
+  "productive_hours_month": 100, "hour_value": 60, "realization_rate": 0.5,
+  "integration_cost": 60000, "annual_platform_cost": 120000,
+  "launch_month": 6, "confidence": 0.9,
+  "tasks": [
+    {"skill_id":"evaluation", "label":"Check sources and quality", "minutes_per_item":0.8},
+    {"skill_id":"workflow", "label":"Integrate findings into research brief", "minutes_per_item":1.2},
+    {"skill_id":"data", "label":"Resolve data and provenance exceptions", "minutes_per_item":0.6}
+  ]
+}
