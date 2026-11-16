@@ -1,0 +1,403 @@
+{
+  "keyword_baseline": {
+    "n": 60,
+    "correct": 23,
+    "accuracy": 0.38333333333333336,
+    "macro_f1_supported_labels": 0.09236947791164658,
+    "confusion": {
+      "deployment": {
+        "deployment": 23,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      },
+      "pilot": {
+        "deployment": 5,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      },
+      "planned": {
+        "deployment": 8,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      },
+      "hiring_innovation": {
+        "deployment": 11,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      },
+      "promotional": {
+        "deployment": 8,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      },
+      "risk": {
+        "deployment": 5,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      },
+      "none": {
+        "deployment": 0,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      }
+    },
+    "errors": [
+      {
+        "evidence_id": "ACN-2023-E1",
+        "review": "planned",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "ACN-2023-E2",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "ACN-2023-E3",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "ACN-2024-E1",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "ACN-2024-E2",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "ACN-2024-E3",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "ADBE-2023-E1",
+        "review": "promotional",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "ADBE-2024-E1",
+        "review": "promotional",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "ADBE-2024-E3",
+        "review": "pilot",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "BAC-2023-E2",
+        "review": "pilot",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "BAC-2023-E3",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "BAC-2024-E1",
+        "review": "promotional",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "BAC-2024-E3",
+        "review": "risk",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "CSCO-2023-E2",
+        "review": "pilot",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "CSCO-2023-E3",
+        "review": "risk",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "CSCO-2024-E1",
+        "review": "promotional",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "CSCO-2024-E3",
+        "review": "planned",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "CRM-2023-E1",
+        "review": "promotional",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "CRM-2023-E3",
+        "review": "risk",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "CRM-2024-E2",
+        "review": "risk",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "CRM-2024-E3",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "GOOGL-2023-E2",
+        "review": "planned",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "GOOGL-2023-E3",
+        "review": "pilot",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "GOOGL-2024-E1",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "GOOGL-2024-E3",
+        "review": "planned",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "IBM-2023-E3",
+        "review": "planned",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "JPM-2023-E2",
+        "review": "pilot",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "JPM-2023-E3",
+        "review": "planned",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "JPM-2024-E1",
+        "review": "promotional",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "MSFT-2023-E1",
+        "review": "promotional",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "MSFT-2023-E2",
+        "review": "planned",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "MSFT-2024-E2",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "MSFT-2024-E3",
+        "review": "risk",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "NVDA-2023-E1",
+        "review": "promotional",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "NVDA-2023-E3",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "NVDA-2024-E2",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "NVDA-2024-E3",
+        "review": "planned",
+        "predicted": "deployment"
+      }
+    ]
+  },
+  "context_rules": {
+    "n": 60,
+    "correct": 46,
+    "accuracy": 0.7666666666666667,
+    "macro_f1_supported_labels": 0.6798472630852493,
+    "confusion": {
+      "deployment": {
+        "deployment": 21,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 2,
+        "risk": 0,
+        "none": 0
+      },
+      "pilot": {
+        "deployment": 0,
+        "pilot": 5,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      },
+      "planned": {
+        "deployment": 1,
+        "pilot": 0,
+        "planned": 6,
+        "hiring_innovation": 1,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      },
+      "hiring_innovation": {
+        "deployment": 1,
+        "pilot": 2,
+        "planned": 0,
+        "hiring_innovation": 6,
+        "promotional": 2,
+        "risk": 0,
+        "none": 0
+      },
+      "promotional": {
+        "deployment": 0,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 1,
+        "promotional": 7,
+        "risk": 0,
+        "none": 0
+      },
+      "risk": {
+        "deployment": 0,
+        "pilot": 2,
+        "planned": 2,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 1,
+        "none": 0
+      },
+      "none": {
+        "deployment": 0,
+        "pilot": 0,
+        "planned": 0,
+        "hiring_innovation": 0,
+        "promotional": 0,
+        "risk": 0,
+        "none": 0
+      }
+    },
+    "errors": [
+      {
+        "evidence_id": "ACN-2024-E1",
+        "review": "hiring_innovation",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "ACN-2024-E2",
+        "review": "hiring_innovation",
+        "predicted": "promotional"
+      },
+      {
+        "evidence_id": "ACN-2024-E3",
+        "review": "hiring_innovation",
+        "predicted": "promotional"
+      },
+      {
+        "evidence_id": "BAC-2024-E1",
+        "review": "promotional",
+        "predicted": "hiring_innovation"
+      },
+      {
+        "evidence_id": "CSCO-2023-E3",
+        "review": "risk",
+        "predicted": "planned"
+      },
+      {
+        "evidence_id": "CRM-2023-E3",
+        "review": "risk",
+        "predicted": "pilot"
+      },
+      {
+        "evidence_id": "CRM-2024-E2",
+        "review": "risk",
+        "predicted": "pilot"
+      },
+      {
+        "evidence_id": "IBM-2023-E2",
+        "review": "deployment",
+        "predicted": "promotional"
+      },
+      {
+        "evidence_id": "IBM-2023-E3",
+        "review": "planned",
+        "predicted": "hiring_innovation"
+      },
+      {
+        "evidence_id": "JPM-2023-E3",
+        "review": "planned",
+        "predicted": "deployment"
+      },
+      {
+        "evidence_id": "JPM-2024-E2",
+        "review": "deployment",
+        "predicted": "promotional"
+      },
+      {
+        "evidence_id": "MSFT-2024-E3",
+        "review": "risk",
+        "predicted": "planned"
+      },
+      {
+        "evidence_id": "NVDA-2023-E3",
+        "review": "hiring_innovation",
+        "predicted": "pilot"
+      },
+      {
+        "evidence_id": "NVDA-2024-E2",
+        "review": "hiring_innovation",
+        "predicted": "pilot"
+      }
+    ]
+  }
+}

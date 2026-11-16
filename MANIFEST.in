@@ -1,0 +1,6 @@
+include LICENSE DATA_NOTICE.md
+recursive-include docs *.md *.png *.jpg *.svg *.json
+recursive-include scripts *.py
+recursive-include examples *.csv *.json
+recursive-include tests *.py *.cjs
+recursive-include .github *.yml

@@ -1,0 +1,105 @@
+{
+  "schema_version": "portfolio.v1",
+  "records": [
+    {
+      "source_id": "JD-10594978",
+      "source_url": "https://www.amazon.jobs/en/jobs/10594978/economist-prime-video-science-prime-video-science",
+      "retrieved_at": "2026-11-16",
+      "source_vintage": "Page accessed 2026-11-16; posting date not stated",
+      "geography": "Employer-listed location; role requirements only",
+      "period": "2026-11-16",
+      "company_id": "US:SEC-CIK:0001018724",
+      "job_id": "10594978",
+      "title": "Economist, Prime Video Science",
+      "skills": [
+        "communication",
+        "evaluation",
+        "quantitative_analysis"
+      ],
+      "skill_taxonomy": "corporate-ai-role-tags",
+      "skill_taxonomy_version": "1.0",
+      "schema_version": "portfolio.v1",
+      "unit_of_observation": "selected public vacancy snapshot",
+      "currency": null,
+      "price_year": null,
+      "status": "observed",
+      "skill_coding_status": "estimated"
+    },
+    {
+      "source_id": "JD-R00289515",
+      "source_url": "https://www.accenture.com/us-en/careers/jobdetails?id=R00289515_en",
+      "retrieved_at": "2026-11-16",
+      "source_vintage": "Page accessed 2026-11-16; posting date not stated",
+      "geography": "Employer-listed location; role requirements only",
+      "period": "2026-11-16",
+      "company_id": "US:SEC-CIK:0001467373",
+      "job_id": "R00289515",
+      "title": "AI & Data Strategy — Manager",
+      "skills": [
+        "ai_strategy",
+        "business_case",
+        "roadmap"
+      ],
+      "skill_taxonomy": "corporate-ai-role-tags",
+      "skill_taxonomy_version": "1.0",
+      "schema_version": "portfolio.v1",
+      "unit_of_observation": "selected public vacancy snapshot",
+      "currency": null,
+      "price_year": null,
+      "status": "observed",
+      "skill_coding_status": "estimated"
+    },
+    {
+      "source_id": "JD-R00354757",
+      "source_url": "https://www.accenture.com/us-en/careers/jobdetails?id=R00354757_en",
+      "retrieved_at": "2026-11-16",
+      "source_vintage": "Page accessed 2026-11-16; posting date not stated",
+      "geography": "Employer-listed location; role requirements only",
+      "period": "2026-11-16",
+      "company_id": "US:SEC-CIK:0001467373",
+      "job_id": "R00354757",
+      "title": "Talent & Workforce Industry & Process Advisor Manager, Banking",
+      "skills": [
+        "business_case",
+        "communication",
+        "roadmap",
+        "workforce_modeling"
+      ],
+      "skill_taxonomy": "corporate-ai-role-tags",
+      "skill_taxonomy_version": "1.0",
+      "schema_version": "portfolio.v1",
+      "unit_of_observation": "selected public vacancy snapshot",
+      "currency": null,
+      "price_year": null,
+      "status": "observed",
+      "skill_coding_status": "estimated"
+    }
+  ],
+  "summary": [
+    {
+      "period": "2026-11-16",
+      "observed_selected_postings": 3,
+      "postings_with_skill_tags": 3,
+      "postings_missing_skill_tags": 0,
+      "skill_counts": {
+        "communication": 2,
+        "evaluation": 1,
+        "quantitative_analysis": 1,
+        "ai_strategy": 1,
+        "business_case": 2,
+        "roadmap": 2,
+        "workforce_modeling": 1
+      },
+      "skill_share_among_tagged_postings": {
+        "communication": 0.6666666666666666,
+        "evaluation": 0.3333333333333333,
+        "quantitative_analysis": 0.3333333333333333,
+        "ai_strategy": 0.3333333333333333,
+        "business_case": 0.6666666666666666,
+        "roadmap": 0.6666666666666666,
+        "workforce_modeling": 0.3333333333333333
+      },
+      "coverage": "Selected snapshots; external labor demand, not employee stock. Compare periods only after verifying stable employer/source coverage."
+    }
+  ]
+}

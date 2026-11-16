@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "scenario-output contract",
+  "allOf": [
+    {
+      "$ref": "#/$defs/metadata"
+    }
+  ],
+  "type": "object",
+  "required": [
+    "inputs",
+    "results"
+  ],
+  "properties": {
+    "status": {
+      "const": "scenario"
+    },
+    "inputs": {
+      "$ref": "#/$defs/scenario"
+    },
+    "results": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "source_url",
+        "retrieved_at",
+        "source_vintage",
+        "geography",
+        "unit_of_observation",
+        "period",
+        "currency",
+        "price_year",
+        "schema_version",
+        "status"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retrieved_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_vintage": {
+          "type": "string",
+          "minLength": 1
+        },
+        "geography": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit_of_observation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "period": {
+          "type": "string",
+          "minLength": 1
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "price_year": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "schema_version": {
+          "const": "portfolio.v1"
+        },
+        "status": {
+          "enum": [
+            "observed",
+            "estimated",
+            "scenario"
+          ]
+        }
+      }
+    },
+    "route": {
+      "type": "object",
+      "required": [
+        "capacity",
+        "success_rate",
+        "ready_month",
+        "upfront_cost",
+        "annual_recurring_cost"
+      ],
+      "properties": {
+        "capacity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "success_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "ready_month": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 120
+        },
+        "upfront_cost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "annual_recurring_cost": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "skill": {
+      "type": "object",
+      "required": [
+        "skill_id",
+        "demand",
+        "routes"
+      ],
+      "properties": {
+        "skill_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "demand": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "routes": {
+          "type": "object",
+          "required": [
+            "train",
+            "redeploy",
+            "hire"
+          ],
+          "properties": {
+            "train": {
+              "$ref": "#/$defs/route"
+            },
+            "redeploy": {
+              "$ref": "#/$defs/route"
+            },
+            "hire": {
+              "$ref": "#/$defs/route"
+            }
+          }
+        }
+      }
+    },
+    "scenario": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/metadata"
+        }
+      ],
+      "type": "object",
+      "required": [
+        "horizon_months",
+        "deadline_months",
+        "annual_discount_rate",
+        "annual_value_per_capability",
+        "upfront_budget",
+        "skills"
+      ],
+      "properties": {
+        "status": {
+          "const": "scenario"
+        },
+        "horizon_months": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 120
+        },
+        "deadline_months": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 120
+        },
+        "annual_discount_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "annual_value_per_capability": {
+          "type": "number",
+          "minimum": 0
+        },
+        "upfront_budget": {
+          "type": "number",
+          "minimum": 0
+        },
+        "skills": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/skill"
+          }
+        }
+      }
+    }
+  }
+}

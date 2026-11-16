@@ -1,0 +1,120 @@
+{
+  "schema_version": "portfolio.v1",
+  "source_id": "SCENARIO-BANK-01",
+  "source_url": null,
+  "retrieved_at": "2026-11-16",
+  "source_vintage": "Scenario v1",
+  "geography": "US hypothetical business unit",
+  "unit_of_observation": "incremental productive capability equivalent",
+  "period": "36 months from decision",
+  "currency": "USD",
+  "price_year": 2026,
+  "status": "scenario",
+  "name": "Bank operations AI capability build",
+  "horizon_months": 36,
+  "deadline_months": 6,
+  "annual_discount_rate": 0.08,
+  "annual_value_per_capability": 180000,
+  "upfront_budget": 400000,
+  "skills": [
+    {
+      "skill_id": "evaluation",
+      "label": "AI evaluation and controls",
+      "taxonomy": "corporate-ai-capabilities",
+      "taxonomy_version": "1.0",
+      "demand": 8,
+      "routes": {
+        "train": {
+          "capacity": 8,
+          "success_rate": 0.8,
+          "ready_month": 4,
+          "upfront_cost": 9000,
+          "annual_recurring_cost": 12000
+        },
+        "redeploy": {
+          "capacity": 3,
+          "success_rate": 0.9,
+          "ready_month": 2,
+          "upfront_cost": 5000,
+          "annual_recurring_cost": 42000
+        },
+        "hire": {
+          "capacity": 12,
+          "success_rate": 1.0,
+          "ready_month": 3,
+          "upfront_cost": 24000,
+          "annual_recurring_cost": 150000
+        }
+      }
+    },
+    {
+      "skill_id": "workflow",
+      "label": "Workflow and domain integration",
+      "taxonomy": "corporate-ai-capabilities",
+      "taxonomy_version": "1.0",
+      "demand": 12,
+      "routes": {
+        "train": {
+          "capacity": 12,
+          "success_rate": 0.8,
+          "ready_month": 4,
+          "upfront_cost": 9000,
+          "annual_recurring_cost": 12000
+        },
+        "redeploy": {
+          "capacity": 5,
+          "success_rate": 0.9,
+          "ready_month": 2,
+          "upfront_cost": 5000,
+          "annual_recurring_cost": 42000
+        },
+        "hire": {
+          "capacity": 16,
+          "success_rate": 1.0,
+          "ready_month": 3,
+          "upfront_cost": 24000,
+          "annual_recurring_cost": 150000
+        }
+      }
+    },
+    {
+      "skill_id": "data",
+      "label": "Data engineering and governance",
+      "taxonomy": "corporate-ai-capabilities",
+      "taxonomy_version": "1.0",
+      "demand": 6,
+      "routes": {
+        "train": {
+          "capacity": 4,
+          "success_rate": 0.8,
+          "ready_month": 4,
+          "upfront_cost": 9000,
+          "annual_recurring_cost": 12000
+        },
+        "redeploy": {
+          "capacity": 2,
+          "success_rate": 0.9,
+          "ready_month": 2,
+          "upfront_cost": 5000,
+          "annual_recurring_cost": 42000
+        },
+        "hire": {
+          "capacity": 10,
+          "success_rate": 1.0,
+          "ready_month": 3,
+          "upfront_cost": 24000,
+          "annual_recurring_cost": 150000
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    "Fictional 200-person bank operations unit; not a client or a staffing estimate for JPMorgan/BAC.",
+    "Demand represents distinct, non-overlapping capability assignments. Candidate pools are disjoint across skills and routes.",
+    "Upfront training cost is $5,000 instruction plus 80 learning hours at $50 per hour; redeployment $5,000; recruiting and onboarding $24,000.",
+    "Annual recurring costs are incremental pay/license uplift ($12,000 training), backfill/opportunity cost ($42,000 redeployment), and fully loaded new-hire cost ($150,000). Existing base payroll is common to the decision and excluded.",
+    "Recurring costs apply to every candidate from month 1, including unsuccessful candidates. Benefits accrue only to expected successful capability after readiness. No salvage value, tax or inflation.",
+    "Success rates represent expected attainment, not guaranteed headcount. No attrition after attainment; no claim about displacement or headcount reduction.",
+    "Annual value is modeled gross incremental operating contribution per successful capability; it is neither estimated from filings nor a BLS wage."
+  ]
+}
