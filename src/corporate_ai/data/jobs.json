@@ -1,0 +1,114 @@
+[
+  {
+    "job_id": "10594978",
+    "employer": "Amazon",
+    "title": "Economist, Prime Video Science",
+    "source_url": "https://www.amazon.jobs/en/jobs/10594978/economist-prime-video-science-prime-video-science",
+    "requirements": [
+      "Evaluate AI systems with benchmarks",
+      "Design experiments and analyze model outputs",
+      "Communicate evidence to business leaders"
+    ],
+    "skills": [
+      "evaluation",
+      "quantitative_analysis",
+      "communication"
+    ],
+    "artifacts": [
+      "evaluation.json",
+      "executive-brief.md",
+      "methodology.md"
+    ],
+    "limits": "This project demonstrates descriptive measurement and evaluation; it does not demonstrate a causal experiment.",
+    "source_id": "JD-10594978",
+    "company_id": "US:SEC-CIK:0001018724",
+    "source_native_id": "10594978",
+    "source_vintage": "Page accessed 2026-11-16; posting date not stated",
+    "retrieved_at": "2026-11-16",
+    "geography": "Employer-listed location; role requirements only",
+    "unit_of_observation": "selected job description",
+    "period": "2026-11-16",
+    "currency": null,
+    "price_year": null,
+    "schema_version": "portfolio.v1",
+    "status": "observed",
+    "skill_coding_status": "estimated",
+    "skill_taxonomy": "corporate-ai-role-tags",
+    "skill_taxonomy_version": "1.0"
+  },
+  {
+    "job_id": "R00289515",
+    "employer": "Accenture",
+    "title": "AI & Data Strategy \u2014 Manager",
+    "source_url": "https://www.accenture.com/us-en/careers/jobdetails?id=R00289515_en",
+    "requirements": [
+      "Assess AI opportunities and peer benchmarks",
+      "Build quantitative business cases",
+      "Develop roadmaps and executive presentations"
+    ],
+    "skills": [
+      "ai_strategy",
+      "business_case",
+      "roadmap"
+    ],
+    "artifacts": [
+      "executive-report.md",
+      "strategy.json",
+      "management-presentation.md"
+    ],
+    "limits": "Public evidence and a consulting scenario; no paid client or enterprise implementation claim.",
+    "source_id": "JD-R00289515",
+    "company_id": "US:SEC-CIK:0001467373",
+    "source_native_id": "R00289515",
+    "source_vintage": "Page accessed 2026-11-16; posting date not stated",
+    "retrieved_at": "2026-11-16",
+    "geography": "Employer-listed location; role requirements only",
+    "unit_of_observation": "selected job description",
+    "period": "2026-11-16",
+    "currency": null,
+    "price_year": null,
+    "schema_version": "portfolio.v1",
+    "status": "observed",
+    "skill_coding_status": "estimated",
+    "skill_taxonomy": "corporate-ai-role-tags",
+    "skill_taxonomy_version": "1.0"
+  },
+  {
+    "job_id": "R00354757",
+    "employer": "Accenture",
+    "title": "Talent & Workforce Industry & Process Advisor Manager, Banking",
+    "source_url": "https://www.accenture.com/us-en/careers/jobdetails?id=R00354757_en",
+    "requirements": [
+      "Model workforce scenarios and acquisition costs",
+      "Connect skills-based mobility to operating decisions",
+      "Translate labor-market evidence into an executable roadmap"
+    ],
+    "skills": [
+      "workforce_modeling",
+      "business_case",
+      "roadmap",
+      "communication"
+    ],
+    "artifacts": [
+      "strategy.json",
+      "labor.json",
+      "roadmap.md"
+    ],
+    "limits": "Does not establish a representative vacancy sample, people management experience or vendor platform certification.",
+    "source_id": "JD-R00354757",
+    "company_id": "US:SEC-CIK:0001467373",
+    "source_native_id": "R00354757",
+    "source_vintage": "Page accessed 2026-11-16; posting date not stated",
+    "retrieved_at": "2026-11-16",
+    "geography": "Employer-listed location; role requirements only",
+    "unit_of_observation": "selected job description",
+    "period": "2026-11-16",
+    "currency": null,
+    "price_year": null,
+    "schema_version": "portfolio.v1",
+    "status": "observed",
+    "skill_coding_status": "estimated",
+    "skill_taxonomy": "corporate-ai-role-tags",
+    "skill_taxonomy_version": "1.0"
+  }
+]

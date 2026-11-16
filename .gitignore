@@ -13,3 +13,6 @@ dist/
 build/
 *.egg-info/
 .playwright-cli/
+clean-env/
+clean-output/
+.checks/

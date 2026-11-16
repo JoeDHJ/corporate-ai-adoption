@@ -1,0 +1,35 @@
+name: Validate public case
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install ".[dev]"
+      - run: python -m pytest -q
+      - run: node tests/strategy-parity.cjs
+      - run: python -m build
+      - name: Install wheel in a clean environment
+        shell: bash
+        run: |
+          python -m venv clean-env
+          if [ -f clean-env/bin/python ]; then P=clean-env/bin/python; C=clean-env/bin/corporate-ai; else P=clean-env/Scripts/python.exe; C=clean-env/Scripts/corporate-ai.exe; fi
+          "$P" -m pip install dist/*.whl
+          "$C" demo --out clean-output
+          "$P" -c "import json,pathlib; d=json.loads(pathlib.Path('clean-output/portfolio.v1.json').read_text(encoding='utf-8')); assert d['summary']['reviewed_spans']==60; assert pathlib.Path('clean-output/index.html').stat().st_size>100000"
